@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="PATasks">
+        <item name="PATask1">Take a picture of team members posing with a fish! Upload the picture to your Facebook page, tag “Jerusalem Scavenger Hunts” with a great caption.</item>
+        <item name="PATask2">Take a pic of team members participating in a street performance.  Upload it to your Facebook page, tag “Jerusalem Scavenger Hunts” with a great caption.</item>
+        <item name="PATask3">Take a picture with “Melech HaHalva”.  Upload the picture to your Facebook page and tag “Jerusalem Scavenger Hunts” with a great caption.</item>
+    </string-array>
+    <string-array name="SDTasks">
+        <item name="SDSTask1">Shop until you drop: Buy 1 lafa (לפה)and 20 gr za’atar (זעתר)</item>
+        <item name="SDSTask2">תעשה עסק: Exchange your “Israel ScaVentures” flashlight for another object.  Continue exchanging until you got your best deal – עסק! We’ll see who got the best עסק!</item>
+    </string-array>
+    <string-array name="MGTasks">
+        <item name="MGTask1">Find 3 people whose first names is David (not from your group).  Ask each of them to write their name and their favorite song in your notepad. </item>
+        <item name="MGTask2">Interview a seller. Write: what do they sell, how long they have been at the shuk, what do they enjoy about their work, what do they want people to know about Jerusalem?</item>
+        <item name="MGTask3">Find someone who will give you a traditional recipe. Write it down in your notepad.</item>
+        <item name="MGTask4">Find someone (not in your group) who comes from the same place as one of your team members. Write in your notepad 3 things they have in common.</item>
+        <item name="MGTask5">Find someone from Morocco, Yemen or Greece. Write in your notepad when and how they got to Israel.</item>
+        <item name="MGTask6">Find a couple that has been married for less than 5 years. Write in your notepad where they live now. How often do they come to the shuk?</item>
+        <item name="MGTask7">Meet a passerby. Find out their favorite place in Jerusalem, write in your notepad why it is their favorite place. </item>
+        <item name="MGTask8">Meet a passerby. Ask them to tell you the story of how their family came to Israel (made Aliyah).</item>
+    </string-array>
+    <string-array name="ShukTTasks">
+        <item name="ShukTTask1">“Rogelach” (רוגלאך): What is it? Where can you find the cheapest Roglach today?  How much does it cost?</item>
+        <item name="ShukTTask2">“Basta” (בסטה): What is it? If your team could start a new Basta here shuk, what do you think would be successful?</item>
+        <item name="ShukTTask3">“Hawaj” (חוואג): What is it? Write down a name of a store where you can buy it.</item>
+        <item name="ShukTTask4">How many languages at the shuk? Ask people speaking languages other than English to write in their language the word “apple” in one page in your notepad.  </item>
+    </string-array>
+    <string-array name="GR8Tasks">
+        <item name="GR8Task1">How many stalls there are all together on Eitz HaChayim street? Write your answer in your notepad.</item>
+        <item name="GR8Task2">On what street is will you find Rechov Agas 1? Write in your notepad some information about the place.</item>
+        <item name="GR8Task3">Find a synagogue in the Shuk. Write in your notepad on what street it is.</item>
+        <item name="GR8Task4">Find Zangi Yechezkel, Linens and Bedding. Write in your notepad how long they have been working in the shuk.</item>
+        <item name="GR8Task5">Find: “Morris” (small meat restaurant). Write in your notepad 5 items from their menu.</item>
+        <item name="GR8Task6">Find the Iraqi market. Write in your notepad the most interesting thing you see in the Iraqi market.</item>
+        <item name="GR8Task7">Find the Etrog Man. Write in your notepad all the juices he stocks. If you had a migraine, how would he help you?</item>
+    </string-array>
+
+
+    <string-array name="Categories">
+        <item name="category1">Performing Arts</item>
+        <item name="category2">Shuk Dash Special</item>
+        <item name="category3">Meet and Greet</item>
+        <item name="category4">Shuk-tionary</item>
+        <item name="category5">GR8 2 Navigate</item>
+    </string-array>
+
+
+    <string-array name="catName">
+        <item name="catName1">Performing Arts</item>
+        <item name="catName2">Shuk Dash Special</item>
+        <item name="catName3">Meet and Greet</item>
+        <item name="catName4">Shuk-tionary</item>
+        <item name="catName5">GR8 2 Navigate</item>
+        <item name="catName6">SNAP</item>
+
+
+    </string-array>
+    <string-array name="catCode">
+        <item name="1">1</item>
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+    </string-array>
+    <string-array name="NumOfTasks">
+        <item name="tasks1">3</item>
+        <item name="tasks2">3</item>
+        <item name="tasks3">9</item>
+        <item name="tasks4">4</item>
+        <item name="tasks5">10</item>
+        <item name="tasks6">5</item>
+    </string-array>
+
+
+
+    <string-array name="Points">
+        <item name="Points1">1 Point</item>
+        <item name="Points2">2 Points</item>
+        <item name="Points3">3 Points</item>
+        <item name="Points4">4 Points</item>
+        <item name="Points5">5 Points</item>
+    </string-array>
+
+</resources>

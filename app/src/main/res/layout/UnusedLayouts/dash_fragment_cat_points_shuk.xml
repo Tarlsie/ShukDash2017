@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   <!--  <TextView
+        android:id="@+id/dashCardCatgeoryShuk"
+        style="@style/dashTxtVCat"
+        android:text="@string/category4" /> -->
+
+    <ScrollView
+        android:id="@+id/horizScrolShuktionary"
+        style="@style/dashHorizSlider" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/relholderShuktionary1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderShuktionary1"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/ShukTTask1" />
+                <TextView
+                    android:id="@+id/dashCardShuktionaryTaskNum1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderShuktionary1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderShuktionary1"
+                    android:text="@string/TaskNum1" />
+                <TextView
+                    android:id="@+id/dashCardPointsShuk1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardShuktionaryTaskNum1"
+                    android:layout_below="@id/dashCardShuktionaryTaskNum1"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points2" />
+                
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickShuk1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsShuk1"
+                    android:layout_alignLeft="@id/dashCardPointsShuk1"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderShuktionary2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderShuktionary2"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/ShukTTask2" />
+                <TextView
+                    android:id="@+id/dashCardShuktionaryTaskNum2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderShuktionary2"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderShuktionary2"
+                    android:text="@string/TaskNum2" />
+                <TextView
+                    android:id="@+id/dashCardPointsShuk2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardShuktionaryTaskNum2"
+                    android:layout_below="@id/dashCardShuktionaryTaskNum2"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points2" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickShuk2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsShuk2"
+                    android:layout_alignLeft="@id/dashCardPointsShuk2"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderShuktionary3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderShuktionary3"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/ShukTTask3" />
+                <TextView
+                    android:id="@+id/dashCardShuktionaryTaskNum3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderShuktionary3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderShuktionary3"
+                    android:text="@string/TaskNum3" />
+                <TextView
+                    android:id="@+id/dashCardPointsShuk3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardShuktionaryTaskNum3"
+                    android:layout_below="@id/dashCardShuktionaryTaskNum3"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points2" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickShuk3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsShuk3"
+                    android:layout_alignLeft="@id/dashCardPointsShuk3"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderShuktionary4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderShuktionary4"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/ShukTTask4" />
+                <TextView
+                    android:id="@+id/dashCardShuktionaryTaskNum4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderShuktionary4"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderShuktionary4"
+                    android:text="@string/TaskNum4" />
+                <TextView
+                    android:id="@+id/dashCardPointsShuk4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardShuktionaryTaskNum4"
+                    android:layout_below="@id/dashCardShuktionaryTaskNum4"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points2" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickShuk4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsShuk4"
+                    android:layout_alignLeft="@id/dashCardPointsShuk4"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

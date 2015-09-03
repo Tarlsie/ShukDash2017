@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@android:color/holo_blue_bright"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Number: "
+        android:id="@+id/txtVTaskNumberTitle"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="##"
+        android:layout_toRightOf="@+id/txtVTaskNumberTitle"
+        android:id="@+id/txtVTaskNumber" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Points"
+        android:layout_alignParentRight="true"
+        android:id="@+id/txtVPoints"
+        android:layout_marginRight="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Description"
+        android:id="@+id/txtVDescription"
+        android:layout_below="@+id/txtVTaskNumberTitle"
+        android:layout_alignLeft="@+id/txtVTaskNumberTitle"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+</RelativeLayout>

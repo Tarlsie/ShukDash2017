@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="16dp"
+    android:background="@color/button_material_light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take a Pic"
+        android:id="@+id/btnTakePic"
+        android:layout_marginLeft="16dp"/>
+
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:inputType="text"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/white"
+        android:layout_below="@+id/btnTakePic"
+        android:layout_alignLeft="@+id/btnTakePic"
+        android:id="@+id/edtTAnswer"
+        android:focusableInTouchMode="true"
+        android:textColor="@android:color/black"/>
+
+
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:text="Save Answers"
+        android:id="@+id/btnSaveAnswers"
+        android:layout_toRightOf="@+id/edtTAnswer"
+        android:layout_alignTop="@+id/edtTAnswer"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"/>
+</RelativeLayout>
+
+<!--
+  <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post to FB"
+        android:id="@+id/btnPostFB"
+        android:layout_gravity="right"
+        android:layout_alignLeft="@+id/btnTakePic"
+        android:layout_below="@+id/edtTAnswer"
+        android:layout_marginBottom="16dp" />
+
+        -->

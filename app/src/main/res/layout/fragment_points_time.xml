@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="8dp"
+    tools:context="com.app.shukdash.Views.fragments.PointsTimeFragment">
+
+    <TextView
+        android:id="@+id/txtVFragmentClock"
+        android:text="Fragment points Clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView android:id="@+id/txtVTotalPoints"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtVFragmentClock"/>
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtVTotalPoints"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:rowCount="4"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <TextView
+            android:id="@+id/TxtVDashTasksCompleted"
+            style="@style/DashGridLayChildren"
+            android:text="@string/tasks_completed_" />
+
+        <TextView
+            android:id="@+id/TxtVDashTasksCompletedDisplay"
+            style="@style/DashGridLayChildren" />
+
+        <TextView
+            android:id="@+id/TxtVDashTasksRemaining"
+            style="@style/DashGridLayChildren"
+            android:text="@string/tasks_remaining_" />
+
+        <TextView
+            android:id="@+id/TxtVDashTasksRemainingDisplay"
+            style="@style/DashGridLayChildren" />
+
+        <TextView
+            android:id="@+id/TxtVDashTotalPotentialPoints"
+            style="@style/DashGridLayChildren"
+            android:text="@string/total_points_so_far" />
+
+        <TextView
+            android:id="@+id/TxtVDashTotalPotentialPointsDisplay"
+            style="@style/DashGridLayChildren" />
+
+        <TextView
+            android:id="@+id/TxtVDashTimeRemaining"
+            style="@style/DashGridLayChildren"
+            android:text="@string/time_remaining_" />
+
+        <TextView
+            android:id="@+id/TxtVDashTimeRemainingDisplay"
+            style="@style/DashGridLayChildren" />
+
+
+    </GridLayout>
+
+</RelativeLayout>

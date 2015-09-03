@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.shukdash.Unused.Dash"
+    tools:ignore="MergeRootFrame" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/shukdashpic"
+        android:src="@drawable/ic_launcher" />
+
+    <GridLayout
+        android:id="@+id/DashGridLayScores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp" >
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/DashLinTitles"
+        style="@style/DashLinContainer"
+        android:layout_width="fill_parent" >
+
+        <TextView
+            android:id="@+id/dashCardCatgeory"
+            style="@style/dashTxtVCat"
+            android:background="@drawable/btn_stat_notify_img_0247"
+            android:text="@string/category1" />
+
+        <TextView
+            android:id="@+id/dashCardCatgeorySD"
+            style="@style/dashTxtVCat"
+            android:text="@string/category2" />
+
+        <TextView
+            android:id="@+id/dashCardCatgeoryMeetGreet"
+            style="@style/dashTxtVCat"
+            android:background="@drawable/kid1"
+            android:text="@string/category3" />
+
+        <TextView
+            android:id="@+id/dashCardCatgeoryShuk"
+            style="@style/dashTxtVCat"
+            android:text="@string/category4" />
+
+        <TextView
+            android:id="@+id/dashCardCatgeoryGR8"
+            style="@style/dashTxtVCat"
+            android:background="@drawable/ic_launcher_img_3477"
+            android:text="@string/category5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FragmentPerforming"
+        style="@style/DashLinContainer" 
+       >
+    </LinearLayout>
+    
+    <!-- the styles for the rest of the linearlayouts does not add the margin settings. -->
+
+</LinearLayout>
+
+<!-- 
+    <LinearLayout
+        android:id="@+id/FragmentSD"
+        style="@style/DashLinContainer" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FragmentMeetGreet"
+        style="@style/DashLinContainer" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FragmentShuktionary"
+        style="@style/DashLinContainer" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FragmentGR8"
+        style="@style/DashLinContainer" >
+    </LinearLayout>
+ -->

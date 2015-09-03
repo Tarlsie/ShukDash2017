@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ShukDash</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_check_location">CheckLocation</string>
+    <string name="title_activity_playerdetails">Playerdetails</string>
+    <string name="title_activity_rules_of_the_game">RulesOfTheGame</string>
+    <string name="title_activity_are_you_ready">AreYouReady</string>
+    <string name="title_activity_dash">Dash</string>
+    <string name="title_activity_completed">Completed</string>
+    <string name="category1">Performing Arts</string>
+    <string name="category2">Shuk Dash Special</string>
+    <string name="category3">Meet and Greet</string>
+    <string name="category4">Shuk-tionary</string>
+    <string name="category5">GR8 2 Navigate</string>
+    <string name="Points1">1 Point</string>
+    <string name="Points2">2 Points</string>
+    <string name="Points3">3 Points</string>
+    <string name="Points4">4 Points</string>
+    <string name="Points5">5 Points</string>
+    <string name="PATask1">Take a picture of team members posing with a fish! Upload the picture to your Facebook page, tag “Jerusalem Scavenger Hunts” with a great caption.</string>
+    <string name="PATask2">Take a pic of team members participating in a street performance.  Upload it to your Facebook page, tag “Jerusalem Scavenger Hunts” with a great caption.</string>
+    <string name="PATask3">Take a picture with “Melech HaHalva”.  Upload the picture to your Facebook page and tag “Jerusalem Scavenger Hunts” with a great caption.</string>
+    <string name="SDSTask1">Shop until you drop: Buy 1 lafa (לפה)and 20 gr za’atar (זעתר)</string>
+    <string name="SDSTask2">תעשה עסק: Exchange your “Israel ScaVentures” flashlight for another object.  Continue exchanging until you got your best deal – עסק! We’ll see who got the best עסק!</string>
+    <string name="MGTask1">Find 3 people whose first names is David (not from your group).  Ask each of them to write their name and their favorite song in your notepad. </string>
+    <string name="MGTask2">Interview a seller. Write: what do they sell, how long they have been at the shuk, what do they enjoy about their work, what do they want people to know about Jerusalem?</string>
+    <string name="MGTask3">Find someone who will give you a traditional recipe. Write it down in your notepad.</string>
+    <string name="MGTask4">Find someone (not in your group) who comes from the same place as one of your team members. Write in your notepad 3 things they have in common.</string>
+    <string name="MGTask5">Find someone from Morocco, Yemen or Greece. Write in your notepad when and how they got to Israel.</string>
+    <string name="MGTask6">Find a couple that has been married for less than 5 years. Write in your notepad where they live now. How often do they come to the shuk?</string>
+    <string name="MGTask7">Meet a passerby. Find out their favorite place in Jerusalem, write in your notepad why it is their favorite place. </string>
+    <string name="MGTask8">Meet a passerby. Ask them to tell you the story of how their family came to Israel (made Aliyah).</string>
+    <string name="ShukTTask1">“Rogelach” (רוגלאך): What is it? Where can you find the cheapest Roglach today?  How much does it cost?</string>
+    <string name="ShukTTask2">“Basta” (בסטה): What is it? If your team could start a new Basta here shuk, what do you think would be successful?</string>
+    <string name="ShukTTask3">“Hawaj” (חוואג): What is it? Write down a name of a store where you can buy it.</string>
+    <string name="ShukTTask4">How many languages at the shuk? Ask people speaking languages other than English to write in their language the word “apple” in one page in your notepad.  </string>
+    <string name="GR8Task1">How many stalls there are all together on Eitz HaChayim street? Write your answer in your notepad.</string>
+    <string name="GR8Task2">On what street is will you find Rechov Agas 1? Write in your notepad some information about the place.</string>
+    <string name="GR8Task3">Find a synagogue in the Shuk. Write in your notepad on what street it is.</string>
+    <string name="GR8Task4">Find Zangi Yechezkel, Linens and Bedding. Write in your notepad how long they have been working in the shuk.</string>
+    <string name="GR8Task5">Find: “Morris” (small meat restaurant). Write in your notepad 5 items from their menu.</string>
+    <string name="GR8Task6">Find the Iraqi market. Write in your notepad the most interesting thing you see in the Iraqi market.</string>
+    <string name="GR8Task7">Find the Etrog Man. Write in your notepad all the juices he stocks. If you had a migraine, how would he help you?</string>
+    <string name="YouWillReceive">Your team will receive: 
+25 Shuk Dash cards
+A map of the Shuk
+Pencil
+Notepad
+Money $$$
+Israel ScaVenture Flashlight</string>
+    <string name="teamPositions">Your team must appoint:
+Leader – keeps the Shuk Dash cards and directs the team.
+Navigator – keeps the map, tracks the activity. 
+Note keeper – makes notes and writes answers
+Photographer – takes photo’s
+Banker and “Esek/עסק” finder– budgets, spends money, does an “Esek”
+Social media expert – googles/facebooks or tweets! </string>
+    <string name="instructions">Instructions  ..........</string>
+    <string name="title_activity_dash_fragment_cat_points">Dash_fragmentCatPoints</string>
+    <string name="shukdashpic">shukDashPic</string>
+    <string name="title_activity_dash_fragment">Dash_fragment</string>
+    <string name="title_activity_dash_entry">DashEntryActivity</string>
+<string name="TaskNum1">Task Number 1</string>
+<string name="TaskNum2">Task Number 2</string>
+<string name="TaskNum3">Task Number 3</string>
+<string name="TaskNum4">Task Number 4</string>
+<string name="TaskNum5">Task Number 5</string>
+<string name="TaskNum6">Task Number 6</string>
+<string name="TaskNum7">Task Number 7</string>
+<string name="TaskNum8">Task Number 8</string>
+<string name="dash_category">Dash Category</string>
+<string name="enter_text_here">Enter text here</string>
+<string name="dash_task">Dash Task</string>
+<string name="save">Save</string>
+<string name="points">Points</string>
+<string name="task_number">Task Number</string>
+<string name="take_a_picture_video">Take a picture/ video</string>
+<string name="post_to_facebook">Post to Facebook</string>
+<string name="tasks_completed_">"Tasks Completed: "</string>
+<string name="tasks_remaining_">"Tasks Remaining: "</string>
+<string name="total_points_so_far">"Total Points So Far (If your answers are correct): "</string>
+<string name="time_remaining_">"Time Remaining: "</string>
+
+</resources>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- <TextView
+        android:id="@+id/dashCardCatgeoryGR8"
+        style="@style/dashTxtVCat"
+        android:text="@string/category5" /> -->
+
+    <ScrollView
+        android:id="@+id/horizScrolGR8"
+        style="@style/dashHorizSlider" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_1"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task1" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_1"
+                    android:text="@string/TaskNum1" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum1"
+                    android:layout_below="@id/dashCardGR8TaskNum1"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_1"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_1"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_2"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task2" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_2"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_2"
+                    android:text="@string/TaskNum2" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum2"
+                    android:layout_below="@id/dashCardGR8TaskNum2"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_2"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_2"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_3"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task3" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_3"
+                    android:text="@string/TaskNum3" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_3"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum3"
+                    android:layout_below="@id/dashCardGR8TaskNum3"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_3"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_3"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_4"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task4" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_4"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_4"
+                    android:text="@string/TaskNum4" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_4"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum4"
+                    android:layout_below="@id/dashCardGR8TaskNum4"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_4"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_4"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_5"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task5" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_5"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_5"
+                    android:text="@string/TaskNum5" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_5"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum5"
+                    android:layout_below="@id/dashCardGR8TaskNum5"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_5"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_5"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_6"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task6" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_6"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_6"
+                    android:text="@string/TaskNum6" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_6"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum6"
+                    android:layout_below="@id/dashCardGR8TaskNum6"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_6"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_6"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_6"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relholderGR8_7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dashCardTaskHolderGR8_7"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/GR8Task7" />
+
+                <TextView
+                    android:id="@+id/dashCardGR8TaskNum7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/dashCardTaskHolderGR8_7"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/dashCardTaskHolderGR8_7"
+                    android:text="@string/TaskNum7" />
+
+                <TextView
+                    android:id="@+id/dashCardPointsGR8_7"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/dashCardGR8TaskNum7"
+                    android:layout_below="@id/dashCardGR8TaskNum7"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/Points3" />
+                
+                <ImageView
+                    android:id="@+id/ImgVdashCardCompletedTickGR8_7"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/dashCardPointsGR8_7"
+                    android:layout_alignLeft="@id/dashCardPointsGR8_7"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="star"
+                    android:visibility="invisible"
+                    android:src="@android:drawable/btn_star_big_on" />
+                
+                
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
