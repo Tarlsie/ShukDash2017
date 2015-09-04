@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:id="@+id/relLayCatListView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_blue_bright">
+    android:background="@color/switch_thumb_normal_material_light">
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,6 +34,62 @@
         android:layout_marginTop="8dp"
         />
 
+    <LinearLayout
+        android:id="@+id/linLayCheckedTextViewContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/txtVShukDashCatListTasksCompleted"
+        android:layout_alignLeft="@+id/txtVShukDashCatListTasksCompleted"
+        android:layout_alignStart="@+id/txtVShukDashCatListTasksCompleted"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Tasks to do:"
+
+            android:id="@+id/txtVShukDashCatListTasksCompletedTitle"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=".."
+
+            android:id="@+id/txtVShukDashCatListTasksCompletedNum"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Tasks Done:"
+
+            android:id="@+id/txtVShukDashCatListTasksToDo"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=".."
+
+            android:id="@+id/txtVShukDashCatListTasksToDoNum"
+
+            />
+
+</LinearLayout>
+
+</RelativeLayout>
+
+<!--
+
     <CheckedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,8 +109,20 @@
         android:layout_marginLeft="16dp"
         android:text="task 2"
         android:id="@+id/checkedTextView2"
-        android:checked="true"
+        android:checked="false"
        android:layout_alignTop="@+id/checkedTextView"
         android:layout_toRightOf="@+id/checkedTextView"
          />
-</RelativeLayout>
+
+    <CheckedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="16dp"
+        android:text="task 3"
+        android:id="@+id/checkedTextView3"
+        android:checked="false"
+        android:layout_alignTop="@+id/checkedTextView2"
+        android:layout_toRightOf="@+id/checkedTextView2"
+        />
+        -->

@@ -244,7 +244,8 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         SQLiteDatabase db =this.getWritableDatabase();
 
-        String query = "SELECT "+CATCODE+" , "+ISANSWERED +" FROM "+ DB_TABLE ;
+        String query = "SELECT "+CATCODE+" , "+ISANSWERED +" FROM "+ DB_TABLE +" ORDER BY "+ CATCODE+" ASC";
+        // add
 
         Cursor cursor = db.rawQuery(query, null);
 //        Log.i("ShukDash", "SQL Function getIsAnswered "+cursor.

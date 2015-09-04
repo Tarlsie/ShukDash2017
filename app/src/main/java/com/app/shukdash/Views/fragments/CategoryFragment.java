@@ -2,15 +2,21 @@ package com.app.shukdash.Views.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.app.shukdash.Models.ShukDashDB;
@@ -40,10 +46,11 @@ public class CategoryFragment extends Fragment {
 
         String[] catNames = getResources().getStringArray(R.array.catName);
         ShukDashDB db = new ShukDashDB(getActivity().getApplicationContext());
-        List<String> catNameData = db.getCatNames();
 
+        List<String> catNameData = db.getCatNames();
         List<String> numOfTasksData = db.getNumOfTasks();
         List<String[]> isAnsweredData = db.getIsCompleted();
+
         Log.i("ShukDash", "CategoryFragment Display isAnsweredData "+ isAnsweredData.size());
         for (int i =0; i<isAnsweredData.size(); i++){
 
@@ -53,6 +60,8 @@ public class CategoryFragment extends Fragment {
 
             Log.i("ShukDash", "CategoryFragment Display isAnsweredData "+ d1 +" "+d2);
         }
+
+        int[] dataReturned = exportTasksToInts(numOfTasksData);
         /*Log.i("Parse Category Fragment", "catNames string[] length " + String.valueOf(catNames.length));
         for (int i =0; i<catNames.length; i++){
 
@@ -72,7 +81,7 @@ public class CategoryFragment extends Fragment {
 
         Log.i("Parse Category Fragment", "adapter start");
         ShukCatListViewAdapter lvData = new ShukCatListViewAdapter(getActivity().getApplicationContext(), R.layout.shukdashcategorieslistview,
-                catNameData  , numOfTasksData, inflater );
+                catNameData  , numOfTasksData,isAnsweredData,dataReturned, inflater );
         Log.i("Parse Category Fragment", "adapter start");
 
         catLists.setAdapter(lvData);
@@ -98,16 +107,21 @@ public class CategoryFragment extends Fragment {
         public Context c;
         public List<String> alName;
         public List<String> alTasks;
+        List<String[]> isAnsweredData;
+        int[] dataReturned;
         LayoutInflater inflater;
         int layoutResourceID;
 
-        public ShukCatListViewAdapter(Context context, int layoutResourceID,  List<String> catName, List<String> tasks, LayoutInflater inflater) {
+        public ShukCatListViewAdapter(Context context, int layoutResourceID,  List<String> catName,
+                                      List<String> tasks, List<String[]> isAnsweredData,int[] dataReturned, LayoutInflater inflater) {
             super(context,layoutResourceID);
             c = context;
             alName=catName;
             alTasks = tasks;
             this.inflater = inflater;
             this.layoutResourceID = layoutResourceID;
+            this.isAnsweredData = isAnsweredData;
+            this.dataReturned = dataReturned;
         }
 
         public int getCount() {
@@ -133,12 +147,220 @@ public class CategoryFragment extends Fragment {
             txtVNames.setText(alName.get(position));
             ((TextView)convertView.findViewById(R.id.txtVShukDashCatListNumOfTasks)).setText(alTasks.get(position));
 
+            TextView txtVtasksToDo = (TextView)convertView.findViewById(R.id.txtVShukDashCatListTasksToDoNum);
+            TextView txtVtasksDone = (TextView)convertView.findViewById(R.id.txtVShukDashCatListTasksCompletedNum);
+//could also use alTasks and convert to ints and use this
+
+//maybe display the number that are completed and the number still to be done in this category  To Do : ? Done: ? for the moment
+//this section should display a check box for each mission within each category
+// in the listview this should be updated as each task is completed
+
+            // check if this type of update will be possible!!
+
+            int counterToDoT1=0;
+            int counterDoneT1=0;
+            int counterToDoT2=0;
+            int counterDoneT2=0;
+            int counterToDoT3=0;
+            int counterDoneT3=0;
+            int counterToDoT4=0;
+            int counterDoneT4=0;
+            int counterToDoT5=0;
+            int counterDoneT5=0;
+            int counterToDoT6=0;
+            int counterDoneT6=0;
+
+            for (int i =0; i<isAnsweredData.size();i++){
+
+                Log.i("Shukdash categoryfrag", "int i = "+i);
+                if (i<3)
+                {
+
+                    int j = Integer.valueOf(isAnsweredData.get(i)[1]);
+                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+
+                    if (j == 0)
+                    {
+                        Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
+                        counterToDoT1++;
+                        Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
+                    }
+                    counterDoneT1 =3-counterToDoT1;
+                    Log.i("Shukdash categoryfrag", "int counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
+                }
+
+
+                else if (i>2 && i<=5)
+                {
+
+                    int j = Integer.valueOf(isAnsweredData.get(i)[1]);
+                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+
+                    if (j == 0)
+                    {
+                        Log.i("Shukdash categoryfrag", "if j=0");
+                        counterToDoT2++;
+                    }
+                    counterDoneT2 =3-counterToDoT2;
+                    Log.i("Shukdash categoryfrag", "int counterDoneT2 = "+counterDoneT2 +" "+" int counterToDoT2 = "+counterToDoT2);
+                }
+
+                else if (i>5 && i<=14)
+                {
+
+                    int j = Integer.valueOf(isAnsweredData.get(i)[1]);
+                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+
+                    if (j == 0)
+                    {
+                        Log.i("Shukdash categoryfrag", "if j=0");
+                        counterToDoT3++;
+                    }
+                    counterDoneT3 =9-counterToDoT3;
+                    Log.i("Shukdash categoryfrag", "int counterDoneT3 = "+counterDoneT3 +" "+" int counterToDoT3 = "+counterToDoT3);
+                }
+
+                else if (i>14 && i<=18)
+                {
+
+                    int j = Integer.valueOf(isAnsweredData.get(i)[1]);
+                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+
+                    if (j == 0)
+                    {
+                        Log.i("Shukdash categoryfrag", "if j=0");
+                        counterToDoT4++;
+                    }
+                    counterDoneT4 =4-counterToDoT4;
+                    Log.i("Shukdash categoryfrag", "int counterDoneT4 = "+counterDoneT4 +" "+" int counterToDoT4 = "+counterToDoT4);
+                }
+
+                else if (i>18 && i<=28)
+                {
+
+                    int j = Integer.valueOf(isAnsweredData.get(i)[1]);
+                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+
+                    if (j == 0)
+                    {
+                        Log.i("Shukdash categoryfrag", "if j=0");
+                        counterToDoT5++;
+                    }
+                    counterDoneT5 =10-counterToDoT5;
+                    Log.i("Shukdash categoryfrag", "int counterDoneT5 = "+counterDoneT5 +" "+" int counterToDoT5 = "+counterToDoT5);
+                }
+
+                else if (i>28 && i<=33)
+                {
+
+                    int j = Integer.valueOf(isAnsweredData.get(i)[1]);
+                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+
+                    if (j == 0)
+                    {
+                        Log.i("Shukdash categoryfrag", "if j=0");
+                        counterToDoT6++;
+                    }
+                    counterDoneT6 =5-counterToDoT6;
+                    Log.i("Shukdash categoryfrag", "int counterDoneT6 = "+counterDoneT6 +" "+" int counterToDoT6 = "+counterToDoT6);
+                }
+
+                else {
+                    Log.i("Shukdash categoryfrag", "ELSE");
+                }
+            }
+
+
+            switch (position){
+                case 0:
+                    txtVtasksToDo.setText(String.valueOf(counterToDoT1));
+                    txtVtasksDone.setText(String.valueOf(counterDoneT1));
+                    break;
+                case 1:
+                    txtVtasksToDo.setText(String.valueOf(counterToDoT2));
+                    txtVtasksDone.setText(String.valueOf(counterDoneT2));
+                    break;
+                case 2:
+                    txtVtasksToDo.setText(String.valueOf(counterToDoT3));
+                    txtVtasksDone.setText(String.valueOf(counterDoneT3));
+                    break;
+                case 3:
+                    txtVtasksToDo.setText(String.valueOf(counterToDoT4));
+                    txtVtasksDone.setText(String.valueOf(counterDoneT4));
+                    break;
+                case 4:
+                    txtVtasksToDo.setText(String.valueOf(counterToDoT5));
+                    txtVtasksDone.setText(String.valueOf(counterDoneT5));
+                    break;
+                case 5:
+                    txtVtasksToDo.setText(String.valueOf(counterToDoT6));
+                    txtVtasksDone.setText(String.valueOf(counterDoneT6));
+                    break;
+            }
+/*
+            int numberOfLoops = newdata.size();
+           // RelativeLayout relLayCatlistView = (RelativeLayout)convertView.findViewById(R.id.relLayCatListView);
+            CheckedTextView[] checkTXV = new CheckedTextView[newdata.size()];
+
+            LinearLayout linLayChkTxtVContainer = (LinearLayout)convertView.findViewById(R.id.linLayCheckedTextViewContainer);
+
+          //  Log.i("ShukDash", "numberOfLoops "+ numberOfLoops);
+            for(int l=0;l<numberOfLoops;l++){
+            //    Log.i("ShukDash", "CheckedTXTV started "+l);
+                checkTXV[l] = new CheckedTextView(getContext());
+                checkTXV[l].setId(l);
+                checkTXV[l].setTag("checkTxtV" + l);
+                checkTXV[l].setText("Task " + l + 1);
+                checkTXV[l].setTextSize(20);
+                checkTXV[l].setTextColor(Color.BLACK);
+                int isAnswer = newdata.get(l).intValue();
+              //  Log.i("ShukDash", "CheckedTXTV started "+l + " isAnswer "+isAnswer);
+
+               // TypedValue value = new TypedValue();
+              //  getContext().getTheme().resolveAttribute(android.R.attr.listChoiceIndicatorMultiple, value, true);
+               // checkTXV[l].setCheckMarkDrawable(value.resourceId);
+                LinearLayout.LayoutParams linLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                linLayoutParams.setMargins(20,0,0,0);
+
+                if (isAnswer==0){
+
+                    checkTXV[l].setChecked(false);
+                }
+                else if(isAnswer==1){
+                    checkTXV[l].setChecked(true);
+                }
+                Log.i("ShukDash", "CheckedTXTV added "+l);
+                checkTXV[l].setLayoutParams(linLayoutParams);
+                linLayChkTxtVContainer.addView(checkTXV[l]);
+            }
+
+*/
+
             return convertView;
         }
 
 
 
     }
+
+    public int[] exportTasksToInts (List<String> data){
+
+        int[] tasksdata = new int[6];
+
+        for (int i =0; i<data.size(); i++){
+
+            tasksdata[i] = Integer.valueOf(data.get(i));
+            Log.i("ShukDash CategoryFragment", "function exporttasks data : position: "+ i + " value "+tasksdata[i]);
+
+        }
+
+
+
+        return tasksdata;
+
+    }
+
+
 }
 
 
