@@ -49,7 +49,7 @@ public class CategoryFragment extends Fragment {
 
         List<String> catNameData = db.getCatNames();
         List<String> numOfTasksData = db.getNumOfTasks();
-        List<String[]> isAnsweredData = db.getIsCompleted();
+        List<String[]> isAnsweredData = db.getIsCompletedOrderedByCat();
 
         Log.i("ShukDash", "CategoryFragment Display isAnsweredData "+ isAnsweredData.size());
         for (int i =0; i<isAnsweredData.size(); i++){
@@ -140,15 +140,16 @@ public class CategoryFragment extends Fragment {
             if (convertView==null){
                 convertView = inflater.inflate(R.layout.shukdashcategorieslistview, null);
             }
-            Log.i("Parse ListArrayAdapter ", "position is " + String.valueOf(position));
+           // Log.i("Parse ListArrayAdapter ", "position is " + String.valueOf(position));
 
             TextView txtVNames = (TextView) convertView.findViewById(R.id.txtVShukDashCatListCatName);
 
             txtVNames.setText(alName.get(position));
-            ((TextView)convertView.findViewById(R.id.txtVShukDashCatListNumOfTasks)).setText(alTasks.get(position));
+            ((TextView)convertView.findViewById(R.id.txtVShukDashCatListNumOfTasks)).setText(alTasks.get(position)+" Tasks");
 
             TextView txtVtasksToDo = (TextView)convertView.findViewById(R.id.txtVShukDashCatListTasksToDoNum);
             TextView txtVtasksDone = (TextView)convertView.findViewById(R.id.txtVShukDashCatListTasksCompletedNum);
+
 //could also use alTasks and convert to ints and use this
 
 //maybe display the number that are completed and the number still to be done in this category  To Do : ? Done: ? for the moment
@@ -156,6 +157,12 @@ public class CategoryFragment extends Fragment {
 // in the listview this should be updated as each task is completed
 
             // check if this type of update will be possible!!
+
+            /*
+            THis following section coudl also be performed in the OnCreateView() above.
+            There the program could work out each of the numbers for done and todo and add them to an array list
+            which is then used to give values to the textview boxes in this getview() function
+             */
 
             int counterToDoT1=0;
             int counterDoneT1=0;
@@ -172,7 +179,7 @@ public class CategoryFragment extends Fragment {
 
             for (int i =0; i<isAnsweredData.size();i++){
 
-                Log.i("Shukdash categoryfrag", "int i = "+i);
+              //  Log.i("Shukdash categoryfrag", "int i = "+i);
                 if (i<3)
                 {
 
@@ -181,9 +188,9 @@ public class CategoryFragment extends Fragment {
 
                     if (j == 0)
                     {
-                        Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
+                       Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
                         counterToDoT1++;
-                        Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
+                       Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
                     }
                     counterDoneT1 =3-counterToDoT1;
                     Log.i("Shukdash categoryfrag", "int counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
@@ -194,85 +201,84 @@ public class CategoryFragment extends Fragment {
                 {
 
                     int j = Integer.valueOf(isAnsweredData.get(i)[1]);
-                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+                  //  Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
 
                     if (j == 0)
                     {
-                        Log.i("Shukdash categoryfrag", "if j=0");
+                     //   Log.i("Shukdash categoryfrag", "if j=0");
                         counterToDoT2++;
                     }
                     counterDoneT2 =3-counterToDoT2;
-                    Log.i("Shukdash categoryfrag", "int counterDoneT2 = "+counterDoneT2 +" "+" int counterToDoT2 = "+counterToDoT2);
+                   // Log.i("Shukdash categoryfrag", "int counterDoneT2 = "+counterDoneT2 +" "+" int counterToDoT2 = "+counterToDoT2);
                 }
 
                 else if (i>5 && i<=14)
                 {
 
                     int j = Integer.valueOf(isAnsweredData.get(i)[1]);
-                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+                   // Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
 
                     if (j == 0)
                     {
-                        Log.i("Shukdash categoryfrag", "if j=0");
+                       // Log.i("Shukdash categoryfrag", "if j=0");
                         counterToDoT3++;
                     }
                     counterDoneT3 =9-counterToDoT3;
-                    Log.i("Shukdash categoryfrag", "int counterDoneT3 = "+counterDoneT3 +" "+" int counterToDoT3 = "+counterToDoT3);
+                  //  Log.i("Shukdash categoryfrag", "int counterDoneT3 = "+counterDoneT3 +" "+" int counterToDoT3 = "+counterToDoT3);
                 }
 
                 else if (i>14 && i<=18)
                 {
 
                     int j = Integer.valueOf(isAnsweredData.get(i)[1]);
-                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+                  //  Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
 
                     if (j == 0)
                     {
-                        Log.i("Shukdash categoryfrag", "if j=0");
+                    //    Log.i("Shukdash categoryfrag", "if j=0");
                         counterToDoT4++;
                     }
                     counterDoneT4 =4-counterToDoT4;
-                    Log.i("Shukdash categoryfrag", "int counterDoneT4 = "+counterDoneT4 +" "+" int counterToDoT4 = "+counterToDoT4);
+                  //  Log.i("Shukdash categoryfrag", "int counterDoneT4 = "+counterDoneT4 +" "+" int counterToDoT4 = "+counterToDoT4);
                 }
 
                 else if (i>18 && i<=28)
                 {
 
                     int j = Integer.valueOf(isAnsweredData.get(i)[1]);
-                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+                 //   Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
 
                     if (j == 0)
                     {
-                        Log.i("Shukdash categoryfrag", "if j=0");
+                   //     Log.i("Shukdash categoryfrag", "if j=0");
                         counterToDoT5++;
                     }
                     counterDoneT5 =10-counterToDoT5;
-                    Log.i("Shukdash categoryfrag", "int counterDoneT5 = "+counterDoneT5 +" "+" int counterToDoT5 = "+counterToDoT5);
+                   // Log.i("Shukdash categoryfrag", "int counterDoneT5 = "+counterDoneT5 +" "+" int counterToDoT5 = "+counterToDoT5);
                 }
 
                 else if (i>28 && i<=33)
                 {
 
                     int j = Integer.valueOf(isAnsweredData.get(i)[1]);
-                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+                   // Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
 
                     if (j == 0)
                     {
-                        Log.i("Shukdash categoryfrag", "if j=0");
+                   //     Log.i("Shukdash categoryfrag", "if j=0");
                         counterToDoT6++;
                     }
                     counterDoneT6 =5-counterToDoT6;
-                    Log.i("Shukdash categoryfrag", "int counterDoneT6 = "+counterDoneT6 +" "+" int counterToDoT6 = "+counterToDoT6);
+                  //  Log.i("Shukdash categoryfrag", "int counterDoneT6 = "+counterDoneT6 +" "+" int counterToDoT6 = "+counterToDoT6);
                 }
 
-                else {
-                    Log.i("Shukdash categoryfrag", "ELSE");
-                }
+
             }
 
 
             switch (position){
                 case 0:
+                    Log.i("Shukdash categoryfrag", "switch counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
                     txtVtasksToDo.setText(String.valueOf(counterToDoT1));
                     txtVtasksDone.setText(String.valueOf(counterDoneT1));
                     break;

@@ -5,10 +5,13 @@ package com.app.shukdash.Presenters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.app.shukdash.Models.GetParseData;
 import com.app.shukdash.Models.InitDashData;
+import com.app.shukdash.Models.ShukDashDB;
+import com.app.shukdash.Views.ShukDash;
 import com.parse.ParseException;
 
 import java.util.ArrayList;
@@ -39,7 +42,9 @@ public class MainActivityPresenter extends Activity{
     public void checkParse() throws ParseException {
         boolean success = false;
 
+
         Log.i("Parse init", "initialise getparsedata object");
+
 
         GetParseData gpd = new GetParseData(context);
         boolean isDBExist = gpd.isDatabaseExist();
@@ -53,8 +58,19 @@ public class MainActivityPresenter extends Activity{
         }
 
         else{
-            success=true;
-            Log.i("ShukDash", "DB exists");
+            Log.i("ShukDash", "DB exists ");
+            boolean isDBData = gpd.isDataBaseContainData();
+
+            if(!isDBData){
+                Log.i("ShukDash", "DB exists BUT does NOT cotain data");
+
+                success = gpd.parseQuery();
+                Log.i("Parse init", "end of getparsedata object");
+            }
+            else {
+                success = true;
+                Log.i("ShukDash", "DB exists AND contains Data");
+            }
         }
 
 

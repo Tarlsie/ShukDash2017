@@ -372,7 +372,8 @@ Social media expert – googles/facebooks or tweets! </string>
     <string name="title_activity_shuk_dash">ShukDash</string>
     <string name="title_activity_tasks_display">TasksDisplay</string>
     <string name="title_activity_tasks_fragment">TasksFragment</string>
-    <string name="total_points_so_far">"Total Points So Far (If your answers are correct): "</string>
+    <string name="total_points_so_far">"Total Points So Far : "</string>
+    <string name="total_points_so_far_long">"Total Points So Far (If your answers are correct): "</string>
     <!-- From: file:/C:/java/AndroidStudio/ShukDash/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -1313,6 +1314,12 @@ Social media expert – googles/facebooks or tweets! </string>
     <!-- From: file:/C:/java/AndroidStudio/ShukDash/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="DashGridLayChildren">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+
+    </style>
+    <style name="DashGridLayChildren1">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">left|top</item>

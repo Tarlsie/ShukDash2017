@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take a Pic"
+        android:id="@+id/btnTakePic"
+        android:layout_marginLeft="8dp"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:id="@+id/imgVDisplayAnswerPic"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post to FB"
+        android:id="@+id/btnPostFB"
+        android:layout_gravity="right"
+        android:layout_alignLeft="@+id/btnTakePic"
+        android:layout_below="@+id/edtTAnswer"
+        android:layout_marginBottom="16dp" />
+
+
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:text="Save Answers"
+        android:id="@+id/btnSaveAnswers"
+        android:layout_toRightOf="@+id/edtTAnswer"
+        android:layout_alignTop="@+id/edtTAnswer"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+
+
+
+
+
+</LinearLayout>

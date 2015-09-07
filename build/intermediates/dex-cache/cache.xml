@@ -4,7 +4,7 @@
     <item
         jar="C:\java\adt23\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
-        revision="23.0.0 rc2"
+        revision="23.0.0"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-e3c20b8271a6cd498463d514ab96e57f601486e7.jar" />
     </item>
@@ -25,14 +25,14 @@
     <item
         jar="C:\java\adt23\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
-        revision="23.0.0"
+        revision="23.0.0 rc2"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-e3c20b8271a6cd498463d514ab96e57f601486e7.jar" />
     </item>
     <item
         jar="C:\java\AndroidStudio\ShukDash\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.0 rc2"
+        revision="23.0.0"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\classes-303706ecc683415068309abcd300cb3be95e6286.jar" />
     </item>
@@ -46,7 +46,7 @@
     <item
         jar="C:\java\AndroidStudio\ShukDash\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.0"
+        revision="23.0.0 rc2"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\classes-303706ecc683415068309abcd300cb3be95e6286.jar" />
     </item>
@@ -60,28 +60,28 @@
     <item
         jar="C:\java\AndroidStudio\ShukDash\app\libs\Parse-1.9.4.jar"
         jumboMode="false"
-        revision="23.0.0 rc2"
+        revision="23.0.0"
         sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\Parse-1.9.4-0b040d8709cc0cc1a4e37e4d8930f3757a700fb4.jar" />
     </item>
     <item
         jar="C:\java\AndroidStudio\ShukDash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.0 rc2"
+        revision="23.0.0"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\classes-d7ebb9d1161f9504e87659c3bd837e50f6b39566.jar" />
     </item>
     <item
         jar="C:\java\AndroidStudio\ShukDash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.0"
+        revision="23.0.0 rc2"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\classes-d7ebb9d1161f9504e87659c3bd837e50f6b39566.jar" />
     </item>
     <item
         jar="C:\java\AndroidStudio\ShukDash\app\libs\Parse-1.9.4.jar"
         jumboMode="false"
-        revision="23.0.0"
+        revision="23.0.0 rc2"
         sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
         <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\pre-dexed\debug\Parse-1.9.4-0b040d8709cc0cc1a4e37e4d8930f3757a700fb4.jar" />
     </item>

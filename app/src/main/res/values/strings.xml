@@ -81,7 +81,8 @@ Social media expert – googles/facebooks or tweets! </string>
 <string name="post_to_facebook">Post to Facebook</string>
 <string name="tasks_completed_">"Tasks Completed: "</string>
 <string name="tasks_remaining_">"Tasks Remaining: "</string>
-<string name="total_points_so_far">"Total Points So Far (If your answers are correct): "</string>
+<string name="total_points_so_far">"Total Points So Far : "</string>
+    <string name="total_points_so_far_long">"Total Points So Far (If your answers are correct): "</string>
 <string name="time_remaining_">"Time Remaining: "</string>
     <string name="catTitle">Cat1</string>
     <string name="title_activity_player_details">PlayerDetails</string>

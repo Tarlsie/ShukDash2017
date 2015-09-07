@@ -84,10 +84,30 @@ public class InitDashData extends ParseObject{
         put("taskNumber", tasknum);
     }
 
-    public void displayDataOrginal(){
-        Log.i("Display Parse init data", getString("categoryName")  +" "+getString("description")
-                +" "+getString("fileLocation") );
+
+
+    public int getIsTextAnswer(){
+        return getNumber ("isTextAnswer").intValue();
     }
 
+    public void setIsTextAnswer(int isTextAnswer){
+        put("isTextAnswer", isTextAnswer);
+    }
+
+    public int getIsPhotoAnswer(){
+        return getNumber ("isPhotoAnswer").intValue();
+    }
+
+    public void setIsPhotoAnswer(int isPhotoAnswer){
+        put("isPhotoAnswer", isPhotoAnswer);
+    }
+
+    public int getIsFBAnswer(){
+        return getNumber ("isFBAnswer").intValue();
+    }
+
+    public void setIsFBAnswer(int isFBAnswer){
+        put("isFBAnswer", isFBAnswer);
+    }
 
 }

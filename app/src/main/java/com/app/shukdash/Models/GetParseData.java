@@ -3,10 +3,16 @@ package com.app.shukdash.Models;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteCantOpenDatabaseException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,17 +22,17 @@ import java.util.List;
 public class GetParseData extends Activity {
 
 
-    int catL1=0, catL2=0, catL3=0, catL4=0, catL5=0,catL6=0;
+    int catL1 = 0, catL2 = 0, catL3 = 0, catL4 = 0, catL5 = 0, catL6 = 0;
 
-   public  Context contextOfApp;
-
-    public GetParseData(Context contextOfApp){
+    public Context contextOfApp;
+    public SQLiteDatabase checkDB;
+    public GetParseData(Context contextOfApp) {
         this.contextOfApp = contextOfApp;
     }
 
     SharedPreferences sharedPrefs;
 
-    public boolean parseQuery()  throws ParseException {
+    public boolean parseQuery() throws ParseException {
 
         List<CatDetailsData> missions = new ArrayList<CatDetailsData>();
 
@@ -60,10 +66,142 @@ public class GetParseData extends Activity {
                 missions.add(newData);
 
 
-
             }
 
             db.inputInitialMissions(missions);
+
+
+            return true;
+        } catch (ParseException e) {
+            Log.i("Parse exception", e.toString());
+            return false;
+        }
+
+    }
+
+
+    public boolean isDatabaseExist() {
+
+        checkDB = null;
+        //  Do not hardcode "/data/"; use Context.getFilesDir().getPath() instead less... (Ctrl+F1)
+        //  Your code should not reference the /sdcard path directly; instead use Environment.getExternalStorageDirectory().getPath().  Similarly, do not reference the /data/data/ path directly; it can vary in multi-user scenarios. Instead, use Context.getFilesDir().getPath().
+        try {
+            checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+            checkDB.close();
+        }
+        catch(SQLiteCantOpenDatabaseException e ){
+            Log.i("ShkDash", "GetparseData isDBExist SQLiteCantOpenDatabaseException "+e.toString());
+        }
+
+        if (checkDB == null) {
+            Log.i("ShukDash", "Check DB is false");
+            return false;
+        } else {
+            Log.i("ShukDash", "Check DB is true");
+            return true;
+        }
+    }
+
+    public boolean isDataBaseContainData(){
+        checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+
+        String query = "SELECT * FROM missions WHERE cat_code = 1" ;
+
+        Cursor isData = checkDB.rawQuery(query, null);
+        String dumpData = DatabaseUtils.dumpCursorToString(isData);
+        Log.i("ShukDash", " GetParseData isDBContainsData dump data : " + dumpData);
+
+       // int d = isData.getCount();
+
+
+        if (isData.getCount() ==0) {
+            Log.i("ShukDash", "Check DB is false");
+            checkDB.close();
+            return false;
+        } else {
+            Log.i("ShukDash", "Check DB is true");
+            return true;
+        }
+    }
+    public void createSharedPrefs(List<InitDashData> catData, int catLength, int catNum) {
+
+        Log.i("Parse Create SharedPref", "details " + String.valueOf(catNum) + " " + String.valueOf(catLength));
+
+        switch (catNum) {
+            case 1:
+                sharedPrefs = contextOfApp.getSharedPreferences("category1", Context.MODE_APPEND);
+                Log.i("Parse Create SharedPref", "number " + String.valueOf(catNum));
+                break;
+            case 2:
+                sharedPrefs = contextOfApp.getSharedPreferences("category2", Context.MODE_APPEND);
+                Log.i("Parse Create SharedPref", "number " + String.valueOf(catNum));
+                break;
+            case 3:
+                sharedPrefs = contextOfApp.getSharedPreferences("category3", Context.MODE_APPEND);
+                Log.i("Parse Create SharedPref", "number " + String.valueOf(catNum));
+                break;
+            case 4:
+                sharedPrefs = contextOfApp.getSharedPreferences("category4", Context.MODE_APPEND);
+                Log.i("Parse Create SharedPref", "number " + String.valueOf(catNum));
+                break;
+            case 5:
+                sharedPrefs = contextOfApp.getSharedPreferences("category5", Context.MODE_APPEND);
+                Log.i("Parse Create SharedPref", "number " + String.valueOf(catNum));
+                break;
+            case 6:
+                sharedPrefs = contextOfApp.getSharedPreferences("category6", Context.MODE_APPEND);
+                Log.i("Parse Create SharedPref", "number " + String.valueOf(catNum));
+                break;
+            default:
+                break;
+        }
+
+        if (sharedPrefs == null) {
+            Log.i("ShukDash ", "Presenter Parse Cat sharedprefs ==null");
+            SharedPreferences.Editor edit = sharedPrefs.edit();
+            edit.putInt("catLength", catLength);
+            edit.putInt("catPointsTotal", 0);
+            Log.i("Presenter Parse Cat", "for loop");
+            for (int i = 0; i < catLength; i++) {
+
+                Log.i("Presenter Parse Cat", "begining shared pref");
+
+                edit.putString("Name" + i, catData.get(i).getCategoryName().toString());
+                edit.putString("Description" + i, catData.get(i).getDescription().toString());
+                edit.putInt("Points" + i, catData.get(i).getPoints());
+                edit.putBoolean("Ticked" + i, false);
+                edit.commit();
+
+                Log.i("Presenter Parse Cat", "end shared pref");
+            }
+
+        }
+    }
+
+}
+ /*   public List<CatDetailsData> getCategoryDetails(){
+
+        List<CatDetailsData> categDetails;
+        ParseQuery<CatDetailsData> catData  = new ParseQuery<CatDetailsData>("CategoryDetails");
+        categDetails = new ArrayList<CatDetailsData>();
+
+        try {
+            categDetails = catData.find();
+            int in = categDetails.size();
+            Log.i("Parse catDetails", "size " + String.valueOf(in));
+
+        }
+        catch (ParseException e)
+        {
+            Log.i("Parse Exception ", e.toString());
+        }
+
+        return categDetails;
+
+
+    }
+
+}
 
 
 /*
@@ -178,112 +316,3 @@ public class GetParseData extends Activity {
             Log.i("Parse Data size", "end of GetParseData activity class");
 
             */
-            return true;
-        }
-        catch (ParseException e){
-            Log.i("Parse exception", e.toString());
-            return false;
-        }
-
-        }
-
-
-    public boolean isDatabaseExist(){
-
-        SQLiteDatabase checkDB = null;
-      //  Do not hardcode "/data/"; use Context.getFilesDir().getPath() instead less... (Ctrl+F1)
-      //  Your code should not reference the /sdcard path directly; instead use Environment.getExternalStorageDirectory().getPath().  Similarly, do not reference the /data/data/ path directly; it can vary in multi-user scenarios. Instead, use Context.getFilesDir().getPath().
-
-        checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
-        checkDB.close();
-
-        if(checkDB==null)
-        {Log.i("ShukDash", "Check DB is false");
-            return false;}
-        else {
-            Log.i("ShukDash", "Check DB is true");
-            return true;
-        }
-    }
-
-    public void createSharedPrefs(List<InitDashData> catData, int catLength, int catNum) {
-
-        Log.i("Parse Create SharedPref", "details "+String.valueOf(catNum)+" "+String.valueOf(catLength));
-
-        switch (catNum){
-            case 1:
-                sharedPrefs = contextOfApp.getSharedPreferences("category1", Context.MODE_APPEND);
-                Log.i("Parse Create SharedPref","number "+String.valueOf(catNum));
-                break;
-            case 2:
-                sharedPrefs = contextOfApp.getSharedPreferences("category2", Context.MODE_APPEND);
-                Log.i("Parse Create SharedPref","number "+String.valueOf(catNum));
-                break;
-            case 3:
-                sharedPrefs = contextOfApp.getSharedPreferences("category3", Context.MODE_APPEND);
-                Log.i("Parse Create SharedPref","number "+String.valueOf(catNum));
-                break;
-            case 4:
-                sharedPrefs = contextOfApp.getSharedPreferences("category4", Context.MODE_APPEND);
-                Log.i("Parse Create SharedPref","number "+String.valueOf(catNum));
-                break;
-            case 5:
-                sharedPrefs = contextOfApp.getSharedPreferences("category5", Context.MODE_APPEND);
-                Log.i("Parse Create SharedPref","number "+String.valueOf(catNum));
-                break;
-            case 6:
-                sharedPrefs = contextOfApp.getSharedPreferences("category6", Context.MODE_APPEND);
-                Log.i("Parse Create SharedPref","number "+String.valueOf(catNum));
-                break;
-            default:
-                break;
-        }
-
-        if (sharedPrefs==null) {
-            Log.i("ShukDash ", "Presenter Parse Cat sharedprefs ==null");
-            SharedPreferences.Editor edit = sharedPrefs.edit();
-            edit.putInt("catLength", catLength);
-            edit.putInt("catPointsTotal", 0);
-            Log.i("Presenter Parse Cat", "for loop");
-            for (int i = 0; i < catLength; i++) {
-
-                Log.i("Presenter Parse Cat", "begining shared pref");
-
-                edit.putString("Name" + i, catData.get(i).getCategoryName().toString());
-                edit.putString("Description" + i, catData.get(i).getDescription().toString());
-                edit.putInt("Points" + i, catData.get(i).getPoints());
-                edit.putBoolean("Ticked" + i, false);
-                edit.commit();
-
-                Log.i("Presenter Parse Cat", "end shared pref");
-            }
-
-        }
-    }
-
-
- /*   public List<CatDetailsData> getCategoryDetails(){
-
-        List<CatDetailsData> categDetails;
-        ParseQuery<CatDetailsData> catData  = new ParseQuery<CatDetailsData>("CategoryDetails");
-        categDetails = new ArrayList<CatDetailsData>();
-
-        try {
-            categDetails = catData.find();
-            int in = categDetails.size();
-            Log.i("Parse catDetails", "size " + String.valueOf(in));
-
-        }
-        catch (ParseException e)
-        {
-            Log.i("Parse Exception ", e.toString());
-        }
-
-        return categDetails;
-
-
-    }
-
-    */
-}
-

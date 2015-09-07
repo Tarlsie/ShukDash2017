@@ -14,19 +14,24 @@ public class CatDetailsData {
 
 
     String catName, description, answer;
-    int catCode, catLength, points, taskNums, isAnswered, catTotalPoints;
+    int catCode, catLength, points, taskNums, isAnswered, catTotalPoints, isTextAnswer, isPhotoAnswer, isFBAnswer;
 
     public CatDetailsData(){
 
     }
 
-    public CatDetailsData(String catName, int catCode, int catLength, int taskNums, String description, int points ){
+    public CatDetailsData(String catName, int catCode, int catLength, int taskNums, String description,
+                          int points, int isTextAnswer, int isPhotoAnswer, int isFBAnswer ){
+
         this.catName = catName;
         this.catCode = catCode;
         this.catLength = catLength;
         this.taskNums = taskNums;
         this.description = description;
         this.points = points;
+        this.isTextAnswer = isTextAnswer;
+        this.isPhotoAnswer = isPhotoAnswer;
+        this.isFBAnswer = isFBAnswer;
     }
 
     public CatDetailsData(String answer, int isAnswered){
@@ -113,12 +118,28 @@ public class CatDetailsData {
         this.isAnswered = isAnswered;
     }
 
-    public int getCatTotalPoints(){
-        return this.catTotalPoints;
+    public int getIsTextAnswer(){
+          return this.isTextAnswer;
+      }
+
+     public void setIsTextAnswer(int isTextAnswer){
+            this.isTextAnswer = isTextAnswer;
+        }
+
+    public int getIsPhotoAnswer(){
+        return this.isPhotoAnswer;
     }
 
-    public void setCatTotalPoints(int catTotalPoints){
-        this.catTotalPoints = catTotalPoints;
+    public void setIsPhotoAnswer(int isPhotoAnswer){
+        this.isPhotoAnswer = isPhotoAnswer;
+    }
+
+    public int getIsFBAnswer(){
+        return this.isFBAnswer;
+    }
+
+    public void setIsFBAnswer(int isFBAnswer){
+        this.isFBAnswer = isFBAnswer;
     }
 
 
