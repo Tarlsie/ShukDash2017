@@ -1,12 +1,17 @@
 package com.app.shukdash.Views;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.graphics.Color;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,18 +30,26 @@ import android.widget.Toast;
 
 import com.app.shukdash.Models.CatDetailsData;
 import com.app.shukdash.Models.ShukDashDB;
+import com.app.shukdash.Presenters.OnSaveGameUpdateData;
+import com.app.shukdash.Presenters.onSaveUpdateFragment;
+import com.app.shukdash.Views.fragments.PointsTimeFragment;
 import com.example.shukdash.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.StringTokenizer;
 
-public class TasksDisplay extends AppCompatActivity {
+public class TasksDisplay extends AppCompatActivity  {
+
     List<CatDetailsData> dataFromDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks_display);
+
+
 
         Intent i = getIntent();
         int num = i.getIntExtra("Category", 0);
@@ -102,6 +115,8 @@ public class TasksDisplay extends AppCompatActivity {
            data.setPoints(c.getInt(4));
            data.setAnswer(c.getString(5));
            data.setIsAnswered(c.getInt(6));
+           data.setIsTextAnswer(c.getInt(7));
+           data.setIsPhotoAnswer(c.getInt(8));
 
            dataFromDB.add(data);
 
@@ -115,7 +130,7 @@ public class TasksDisplay extends AppCompatActivity {
         List<String> taskNumbers = new ArrayList<>();
         for (int m = 0; m<numOfTasks;m++){
 
-            String a = String.valueOf(m+1);
+            String a = String.valueOf(m + 1);
             Log.i("ShukDash", "numofTasks int value "+a);
             taskNumbers.add(a);
         }
@@ -154,9 +169,25 @@ public class TasksDisplay extends AppCompatActivity {
             answers.add(t);
         }
 
+        List<Integer> isTextAnswer = new ArrayList<>();
+        for(int n =0;n<numOfTasks;n++){
+
+            int t = dataFromDB.get(n).getIsTextAnswer();
+            Log.i("ShukDash", "isTextAnswer "+t);
+            isTextAnswer.add(t);
+        }
+
+        List<Integer> isPhotoAnswer = new ArrayList<>();
+        for (int n = 0; n<numOfTasks; n++){
+            int t = dataFromDB.get(n).getIsPhotoAnswer();
+            Log.i("ShukDash", "isPhotoAnswer "+t);
+            isPhotoAnswer.add(t);
+        }
+
+
         ExpandableListView exLView = (ExpandableListView)findViewById(R.id.expLstTasks);
 
-        ExpandableListAdapter exAdapter = new ExpandableListAdapter(getApplicationContext(),num,  taskNumbers, descripts,answers, points, isTicked);
+        ExpandableListAdapter exAdapter = new ExpandableListAdapter(getApplicationContext(),num,  taskNumbers, descripts,answers, points, isTicked,isTextAnswer, isPhotoAnswer);
 
         exLView.setAdapter(exAdapter);
 
@@ -203,21 +234,26 @@ public class TasksDisplay extends AppCompatActivity {
     String t = prefs.getString("Answer" + k, "");
      */
 
-    public class ExpandableListAdapter extends BaseExpandableListAdapter{
+    public class ExpandableListAdapter extends BaseExpandableListAdapter  {
 
+        onSaveUpdateFragment updateFragment;
         private Context c;
         private  List<String> taskNum;
         private List<String> description;
         private List<Integer> points;
         private List<Integer > isTicked;
         private List<String > answers;
+        List<Integer> isTextAnswer;
+        List<Integer> isPhotoAnswer;
         private int num;
         boolean correctAnswer;
         int pointsTotal;
         ShukDashDB db ;
-
+        OnSaveGameUpdateData obs;
+       // Observer data;
         public ExpandableListAdapter(Context c,  int num, List<String> numbers,  List<String> description,
-                                     List<String > answers,  List<Integer> points, List<Integer > isTicked){
+                                     List<String > answers,  List<Integer> points, List<Integer > isTicked,
+                                     List<Integer> isTextAnswer,List<Integer> isPhotoAnswer ){
             this.c =c;
             this.taskNum = numbers;
             this.description = description;
@@ -225,7 +261,11 @@ public class TasksDisplay extends AppCompatActivity {
             this.num = num;
             this.isTicked = isTicked;
             this.answers = answers;
+            this.isTextAnswer = isTextAnswer;
+            this.isPhotoAnswer = isPhotoAnswer;
+            obs = new OnSaveGameUpdateData();
             db=new ShukDashDB(getApplicationContext());
+
         }
 
 
@@ -273,10 +313,10 @@ public class TasksDisplay extends AppCompatActivity {
                 convertView = inflater.inflate(R.layout.task_description, null);
             }
 
-            Log.i("ShukDash", "numbers has " + String.valueOf(taskNum.size()));
-            Log.i("ShukDash", "descriptions has " + String.valueOf(description.size()));
-            Log.i("ShukDash", "points has " + String.valueOf(points.size()));
-            Log.i("ShukDash", "groupPosition is " + String.valueOf(groupPosition));
+        //    Log.i("ShukDash", "numbers has " + String.valueOf(taskNum.size()));
+         //   Log.i("ShukDash", "descriptions has " + String.valueOf(description.size()));
+         //   Log.i("ShukDash", "points has " + String.valueOf(points.size()));
+         //   Log.i("ShukDash", "groupPosition is " + String.valueOf(groupPosition));
 
             TextView taskNumber = (TextView)convertView.findViewById(R.id.txtVTaskNumber);
             taskNumber.setText(taskNum.get(groupPosition));
@@ -287,9 +327,9 @@ public class TasksDisplay extends AppCompatActivity {
             TextView descriptionTxtView = (TextView)convertView.findViewById(R.id.txtVDescription);
             descriptionTxtView.setText(description.get(groupPosition));
 
-            long packedPosition = ExpandableListView.getPackedPositionForGroup(groupPosition);
-            int positionType = ExpandableListView.getPackedPositionType(packedPosition);
-            Log.i("Shukdash", "packedposition " +packedPosition + "position type "+positionType);
+        //    long packedPosition = ExpandableListView.getPackedPositionForGroup(groupPosition);
+        //    int positionType = ExpandableListView.getPackedPositionType(packedPosition);
+        //    Log.i("Shukdash", "packedposition " +packedPosition + "position type "+positionType);
 
 
             /////////////////
@@ -316,27 +356,40 @@ public class TasksDisplay extends AppCompatActivity {
             return convertView;
         }
 
+        EditText answer=null;
         @Override
         public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             correctAnswer = false;
 
+            Button takeAPic=null;
 
 
-            Log.i("ShukDash", "group position is "+groupPosition);
-            Log.i("ShukDash", "child position is "+childPosition);
+           // Log.i("ShukDash", "group position is "+groupPosition);
+          //  Log.i("ShukDash", "child position is "+childPosition);
            // pointsTotal = pref.getInt("catPointsTotal", 0);
            // Log.i("ShukDash", "initial points total is "+pointsTotal);
 
             if(convertView==null){
                 LayoutInflater inflater = (LayoutInflater) this.c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.task_enter_answers, null);
+             /*   if(isFBAnswer.equals(1)&&isPhotoAnswer.equals(1)) {
+                    convertView = inflater.inflate(R.layout.task_enter_answers_photo_and_fb, null);
+                }
+                if(isPhotoAnswer.equals(1)) {
+                    convertView = inflater.inflate(R.layout.task_enter_answers_photo_only, null);
+
+                }
+                else if(isTextAnswer.equals(1)) {
+                    convertView = inflater.inflate(R.layout.task_enter_answers_text_only, null);
+
+                }*/
             }
 
-            Button takeAPic = (Button)convertView.findViewById(R.id.btnTakePic);
+          //  takeAPic = (Button)convertView.findViewById(R.id.btnTakePic);
             //Button postFB = (Button)convertView.findViewById(R.id.btnPostFB);
             Button saveAnswers = (Button)convertView.findViewById(R.id.btnSaveAnswers);
-            final EditText answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
-
+            //final EditText answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
+            answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
 
             if (answers.get(groupPosition)!=null){
                 answer.setText(answers.get(groupPosition));
@@ -351,12 +404,15 @@ Similarly whether a text answer needs to be given or not/ post to fb.
 
 In each case the relevant buttons and views will be displayed and hidden
  */
-            takeAPic.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(c, "Take a Pic button Pressed", Toast.LENGTH_LONG).show();
-                }
-            });
+
+            /*
+                takeAPic.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(c, "Take a Pic button Pressed", Toast.LENGTH_LONG).show();
+                    }
+                });
+*/
 
      /*       postFB.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -366,20 +422,35 @@ In each case the relevant buttons and views will be displayed and hidden
             });
 
 */
+
+            final View v = convertView;
             final int answerForGroup = groupPosition;
             saveAnswers.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.i("ShukDash", "on click");
                     String answerText = null;
+
+                  //  if(v.getId()==R.layout.task_enter_answers_text_only)
+
                     if (answer.getText() != null) {
                         answerText = answer.getText().toString();
-                        Log.i("ShukDash", "TasksDisplay Set answer and isAnswered save to DB: catCode- "+num +" taskNum " +groupPosition+1);
+                        Log.i("ShukDash", "TasksDisplay Set answer and isAnswered save to DB: catCode- "+num +" taskNum " +(groupPosition+1));
                        boolean result = db.setAnswerForTask(num ,groupPosition+1 , answerText, 1);
 
                         if (result){
-                            Log.i("ShukDash", "TasksDisplay setAnswersForTask "+groupPosition +" Success");
+                            Log.i("ShukDash", "TasksDisplay setAnswersForTask " + groupPosition + " Success");
                             Toast.makeText(getApplicationContext(), "Results successfully saved", Toast.LENGTH_LONG).show();
+                            int tasksValue = Integer.valueOf(taskNum.get(groupPosition));
+
+                            Log.i("ShukDash setPoints", " points "+points.get(groupPosition) );
+                            obs.setPoints(points.get(groupPosition));
+                            Log.i("ShukDash setTasks", " tasks " + tasksValue);
+                            obs.setTask(tasksValue);
+
+                           // obs.addObserver(data);
+                           // obs.notifyObservers(obs);
+
                         }
                         else if (!result){
                             Log.i("ShukDash", "TasksDisplay setAnswersForTask "+groupPosition +" UNSUCCESSFUL");
@@ -388,13 +459,19 @@ In each case the relevant buttons and views will be displayed and hidden
 
 
                     }
-                //    Log.i("ShukDash", "New Pointstotal is " + pointsTotal);
+
+                    answerText = answer.getText().toString();
                     Log.i("ShukDash", "EditText text is " + answerText);
                     Toast.makeText(c, "Save Answers button Pressed " + answerText, Toast.LENGTH_LONG).show();
 
                     //////
                     ///update the points total in the pointstotal fragment
                     ///////
+
+                    PointsTimeFragment pointsTime = (PointsTimeFragment)getSupportFragmentManager().findFragmentById(R.id.ClockPointsFragment);
+                    pointsTime.onPause();
+                    pointsTime.onResume();
+
                 }
             });
 
@@ -406,29 +483,7 @@ In each case the relevant buttons and views will be displayed and hidden
             return false;
         }
 
-        @Override
-        public void notifyDataSetChanged() {
-            super.notifyDataSetChanged();
-        }
+
     }
 
 }
-/*
-SharedPreferences.Editor edit = pref.edit();
-                        Log.i("ShukDash", "save text");
-
-                        if(isTicked.get(groupPosition)==0) {
-                            Log.i("ShukDash", "Pointstotal original is " + pointsTotal);
-
-                            Log.i("ShukDash", "Points for this answer " + points.get(groupPosition));
-                            pointsTotal = pointsTotal + points.get(groupPosition);
-                            Log.i("ShukDash", "New Pointstotal is " + pointsTotal);
-                            edit.putInt("catPointsTotal", pointsTotal);
-                        }
-
-                        edit.putString("Answer" + answerForGroup, answerText);
-                        edit.putBoolean("Ticked" + answerForGroup, true);
-                        edit.commit();
-
-
- */

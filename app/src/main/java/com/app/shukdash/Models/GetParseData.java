@@ -104,17 +104,20 @@ public class GetParseData extends Activity {
 
     public boolean isDataBaseContainData(){
         checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
-
+        Cursor isData=null;
         String query = "SELECT * FROM missions WHERE cat_code = 1" ;
+        String queryTableExists = "select name from sqlite_master where type='table'";
+               isData  = checkDB.rawQuery(queryTableExists, null);
 
-        Cursor isData = checkDB.rawQuery(query, null);
-        String dumpData = DatabaseUtils.dumpCursorToString(isData);
+                String dumpData = DatabaseUtils.dumpCursorToString(isData);
+
+
         Log.i("ShukDash", " GetParseData isDBContainsData dump data : " + dumpData);
 
        // int d = isData.getCount();
 
 
-        if (isData.getCount() ==0) {
+        if (isData.getCount() ==1) {
             Log.i("ShukDash", "Check DB is false");
             checkDB.close();
             return false;

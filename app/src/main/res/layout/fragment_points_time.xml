@@ -47,9 +47,10 @@
             android:id="@+id/TxtVDashTotalPotentialPoints"
             style="@style/DashGridLayChildren"
             android:text="@string/total_points_so_far"
-            android:layout_marginTop="8dp"
-            android:layout_below="@id/TxtVDashTasksRemaining"
-            android:layout_alignParentLeft="true"/>
+            android:layout_toRightOf="@+id/TxtVDashTasksRemainingDisplay"
+            android:layout_alignTop="@+id/TxtVDashTasksRemainingDisplay"
+            android:layout_marginLeft="24dp"
+            />
 
         <TextView
             android:id="@+id/TxtVDashTotalPotentialPointsDisplay"
@@ -63,8 +64,8 @@
             style="@style/DashGridLayChildren"
             android:text="@string/time_remaining_"
             android:layout_marginTop="8dp"
-            android:layout_below="@+id/TxtVDashTotalPotentialPoints"
-           android:layout_alignLeft="@+id/TxtVDashTotalPotentialPoints"/>
+            android:layout_below="@+id/TxtVDashTasksRemaining"
+           android:layout_alignLeft="@+id/TxtVDashTasksRemaining"/>
 
         <TextView
             android:id="@+id/TxtVDashTimeRemainingDisplay"

@@ -62,8 +62,10 @@ public class MainActivityPresenter extends Activity{
             boolean isDBData = gpd.isDataBaseContainData();
 
             if(!isDBData){
-                Log.i("ShukDash", "DB exists BUT does NOT cotain data");
-
+                Log.i("ShukDash", "DB exists BUT does NOT contain data");
+              //  ShukDashDB shukDB = new ShukDashDB(this);
+               //SQLiteDatabase checkDB =shukDB.getReadableDatabase();
+               // shukDB.onCreate(checkDB);
                 success = gpd.parseQuery();
                 Log.i("Parse init", "end of getparsedata object");
             }

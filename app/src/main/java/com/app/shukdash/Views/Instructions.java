@@ -1,16 +1,23 @@
 package com.app.shukdash.Views;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.app.shukdash.Models.GetParseData;
+import com.app.shukdash.Models.ShukDashDB;
 import com.app.shukdash.Presenters.InstructionsPresenter;
 import com.example.shukdash.R;
+import com.parse.ParseException;
 
 public class Instructions extends AppCompatActivity {
 
@@ -56,6 +63,31 @@ public class Instructions extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_deleteGame) {
+
+            Log.i("ShukDash DeleteGame", "Click menu delete");
+
+            Toast.makeText(this, "Delete Game Details", Toast.LENGTH_SHORT).show();
+
+            ShukDashDB db = new ShukDashDB(this);
+
+           db.deleteTable();
+            //db.resetAnswersSettings();
+            Log.i("ShukDash DeleteGame", "db table deleted");
+            Toast.makeText(this, "DB Deleted", Toast.LENGTH_SHORT).show();
+
+           // SQLiteDatabase checkDB =db.getReadableDatabase();
+           //  db.onCreate(checkDB);
+            GetParseData gpd = new GetParseData(this);
+            try{
+                gpd.parseQuery();
+            }
+            catch(ParseException e){
+                Log.i("ShukDash ", "parse exception "+e.toString());
+            }
+
             return true;
         }
 

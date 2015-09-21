@@ -382,10 +382,9 @@ public class ShukDashDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String query = "SELECT "+ TASKNUM +" , "+ CATNAME +" , "+CATLENGTH   +" , "+ DESCRIPTION  +" , "+ POINTS +" , "+
-                ANSWER +" , "+ ISANSWERED   + " FROM "+DB_TABLE +" WHERE "+CATCODE +" = "+categoryNum;
+                ANSWER +" , "+ ISANSWERED   + " , "+ ISTEXTINPUTANSWER  +" , "+ ISPHOTOANSWER +" FROM "+DB_TABLE +" WHERE "+CATCODE +" = "+categoryNum;
 
         cursor = db.rawQuery(query,null);
-
 
         String dumpCursor = DatabaseUtils.dumpCursorToString(cursor);
         Log.i("ShukDash", " ShukDashDB : Cursor Dump to string "+dumpCursor);
@@ -440,5 +439,31 @@ public class ShukDashDB extends SQLiteOpenHelper {
         }
 
         return points;
+    }
+
+    public boolean deleteTable(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = " delete from "+DB_TABLE;
+        Cursor c = db.rawQuery(query, null);
+        String dataDump = DatabaseUtils.dumpCursorToString(c);
+
+        Log.i("ShukDash ", "DB drop all data - keep table");
+
+
+        return true;
+    }
+
+    public boolean resetAnswersSettings(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String query = "update "+DB_TABLE +" SET " +ANSWER +" = null , " +ISANSWERED + " = 0 ";
+
+        Cursor c = db.rawQuery(query, null);
+        String dataDump = DatabaseUtils.dumpCursorToString(c);
+
+        Log.i("ShukDash ", "DB update data - keep table");
+        return true;
     }
 }

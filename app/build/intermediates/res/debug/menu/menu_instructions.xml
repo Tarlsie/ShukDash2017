@@ -4,5 +4,7 @@
     tools:context="com.app.shukdash.Views.Instructions">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_deleteGame" android:title="Reset"/>
 </menu>
 <!-- From: file:/C:/java/AndroidStudio/ShukDash/app/src/main/res/menu/menu_instructions.xml -->

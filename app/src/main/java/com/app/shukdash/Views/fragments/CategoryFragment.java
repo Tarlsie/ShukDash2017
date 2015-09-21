@@ -34,22 +34,29 @@ public class CategoryFragment extends Fragment {
     public CategoryFragment() {
     }
 
+    ShukDashDB db ;
+
+    List<String> catNameData;
+    List<String> numOfTasksData;
+    List<String[]> isAnsweredData ;
+    ListView catLists;
+    ShukCatListViewAdapter lvData;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_category, container, false);
 
-        ListView catLists = (ListView)v.findViewById(R.id.lstVShukDashCats);
+        catLists = (ListView)v.findViewById(R.id.lstVShukDashCats);
         List<String> data = new ArrayList<String>();
         List<String> tasks = new ArrayList<String>();
-
         String[] catNames = getResources().getStringArray(R.array.catName);
-        ShukDashDB db = new ShukDashDB(getActivity().getApplicationContext());
 
-        List<String> catNameData = db.getCatNames();
-        List<String> numOfTasksData = db.getNumOfTasks();
-        List<String[]> isAnsweredData = db.getIsCompletedOrderedByCat();
+         db = new ShukDashDB(getActivity().getApplicationContext());
+
+         catNameData = db.getCatNames();
+         numOfTasksData = db.getNumOfTasks();
+         isAnsweredData = db.getIsCompletedOrderedByCat();
 
         Log.i("ShukDash", "CategoryFragment Display isAnsweredData "+ isAnsweredData.size());
         for (int i =0; i<isAnsweredData.size(); i++){
@@ -80,8 +87,8 @@ public class CategoryFragment extends Fragment {
         */
 
         Log.i("Parse Category Fragment", "adapter start");
-        ShukCatListViewAdapter lvData = new ShukCatListViewAdapter(getActivity().getApplicationContext(), R.layout.shukdashcategorieslistview,
-                catNameData  , numOfTasksData,isAnsweredData,dataReturned, inflater );
+        lvData = new ShukCatListViewAdapter(getActivity().getApplicationContext(), R.layout.shukdashcategorieslistview,
+                catNameData  , numOfTasksData,isAnsweredData,dataReturned, inflater);
         Log.i("Parse Category Fragment", "adapter start");
 
         catLists.setAdapter(lvData);
@@ -90,8 +97,8 @@ public class CategoryFragment extends Fragment {
         catLists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent (getActivity().getApplicationContext(), TasksDisplay.class );
-                i.putExtra("Category", position+1);
+                Intent i = new Intent(getActivity().getApplicationContext(), TasksDisplay.class);
+                i.putExtra("Category", position + 1);
                 startActivity(i);
             }
         });
@@ -123,6 +130,8 @@ public class CategoryFragment extends Fragment {
             this.isAnsweredData = isAnsweredData;
             this.dataReturned = dataReturned;
         }
+
+
 
         public int getCount() {
             return alName.size();
@@ -184,16 +193,16 @@ public class CategoryFragment extends Fragment {
                 {
 
                     int j = Integer.valueOf(isAnsweredData.get(i)[1]);
-                    Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
+                    //Log.i("Shukdash categoryfrag", "int i = "+i +" "+" int j = "+j);
 
                     if (j == 0)
                     {
-                       Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
+                       //Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
                         counterToDoT1++;
-                       Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
+                       //Log.i("Shukdash categoryfrag", "if j=0 "+counterToDoT1);
                     }
                     counterDoneT1 =3-counterToDoT1;
-                    Log.i("Shukdash categoryfrag", "int counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
+                    //Log.i("Shukdash categoryfrag", "int counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
                 }
 
 
@@ -278,7 +287,7 @@ public class CategoryFragment extends Fragment {
 
             switch (position){
                 case 0:
-                    Log.i("Shukdash categoryfrag", "switch counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
+                   // Log.i("Shukdash categoryfrag", "switch counterDoneT1 = "+counterDoneT1 +" "+" int counterToDoT1 = "+counterToDoT1);
                     txtVtasksToDo.setText(String.valueOf(counterToDoT1));
                     txtVtasksDone.setText(String.valueOf(counterDoneT1));
                     break;
@@ -366,7 +375,29 @@ public class CategoryFragment extends Fragment {
 
     }
 
+    public void onPause(){
+        super.onPause();
+    }
 
+    public void onResume(){
+        super.onResume();
+
+        db = new ShukDashDB(getActivity().getApplicationContext());
+
+        catNameData = db.getCatNames();
+        numOfTasksData = db.getNumOfTasks();
+        isAnsweredData = db.getIsCompletedOrderedByCat();
+
+        lvData.notifyDataSetChanged();
+        /*
+            int[] dataReturned = exportTasksToInts(numOfTasksData);
+
+       // LayoutInflater inflater = inflate(R.layout.shukdashcategorieslistview, null);
+       // ShukCatListViewAdapter lvData = new ShukCatListViewAdapter(getActivity().getApplicationContext(), R.layout.shukdashcategorieslistview,
+        //        catNameData  , numOfTasksData,isAnsweredData,dataReturned, inflater );
+       // catLists.setAdapter(lvData);
+*/
+    }
 }
 
 

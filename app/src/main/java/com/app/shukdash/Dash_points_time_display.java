@@ -77,4 +77,6 @@ public class Dash_points_time_display extends Fragment {
 		return v;
 	}
 
+
+
 }

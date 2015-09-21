@@ -1563,17 +1563,19 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0c0024;
         public static final int action_bar_title=0x7f0c0023;
         public static final int action_context_bar=0x7f0c0041;
+        public static final int action_deleteGame=0x7f0c008d;
         public static final int action_divider=0x7f0c0071;
         public static final int action_menu_divider=0x7f0c0002;
         public static final int action_menu_presenter=0x7f0c0003;
         public static final int action_mode_bar=0x7f0c003d;
         public static final int action_mode_bar_stub=0x7f0c003c;
         public static final int action_mode_close_button=0x7f0c0025;
-        public static final int action_settings=0x7f0c008a;
+        public static final int action_settings=0x7f0c008c;
         public static final int activity_chooser_view_content=0x7f0c0026;
         public static final int alertTitle=0x7f0c0030;
         public static final int always=0x7f0c0016;
         public static final int beginning=0x7f0c0013;
+        public static final int btnPostFB=0x7f0c008b;
         public static final int btnPressStart=0x7f0c0053;
         public static final int btnSaveAnswers=0x7f0c0089;
         public static final int btnTakePic=0x7f0c0087;
@@ -1607,6 +1609,7 @@ containing a value of this type.
         public static final int icon=0x7f0c002b;
         public static final int ifRoom=0x7f0c0018;
         public static final int image=0x7f0c0028;
+        public static final int imgVDisplayAnswerPic=0x7f0c008a;
         public static final int info=0x7f0c0078;
         public static final int linLayCheckedTextViewContainer=0x7f0c007e;
         public static final int line1=0x7f0c0072;
@@ -1745,6 +1748,9 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f030034;
         public static final int task_description=0x7f030035;
         public static final int task_enter_answers=0x7f030036;
+        public static final int task_enter_answers_photo_and_fb=0x7f030037;
+        public static final int task_enter_answers_photo_only=0x7f030038;
+        public static final int task_enter_answers_text_only=0x7f030039;
     }
     public static final class menu {
         public static final int are_you_ready=0x7f0d0000;
