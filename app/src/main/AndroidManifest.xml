@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
@@ -48,7 +47,6 @@
         <activity
             android:name="com.app.shukdash.Unused.Dash"
             android:label="@string/title_activity_dash" >
-
         </activity>
         <activity
             android:name="com.app.shukdash.Unused.Completed"
@@ -65,7 +63,6 @@
         <activity
             android:name="com.app.shukdash.Unused.DashEntryActivity"
             android:label="@string/title_activity_dash_entry" >
-
         </activity>
         <activity
             android:name="com.app.shukdash.Views.PlayerDetails"
@@ -85,8 +82,10 @@
         </activity>
         <activity
             android:name="com.app.shukdash.Views.TasksDisplay"
-            android:windowSoftInputMode="adjustPan"
-            android:label="@string/title_activity_tasks_display" >
+            android:label="@string/title_activity_tasks_display"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity android:name="com.app.shukdash.Views.ShukDashMain" >
         </activity>
     </application>
 

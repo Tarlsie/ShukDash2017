@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -84,6 +84,8 @@
             android:name="com.app.shukdash.Views.TasksDisplay"
             android:label="@string/title_activity_tasks_display"
             android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity android:name="com.app.shukdash.Views.ShukDashMain" >
         </activity>
     </application>
 
