@@ -7,12 +7,12 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteCantOpenDatabaseException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
+
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class GetParseData extends Activity {
     SharedPreferences sharedPrefs;
 
     public boolean parseQuery() throws ParseException {
-
+        Log.i("getparsedata parseQuery()", "start");
         List<CatDetailsData> missions = new ArrayList<CatDetailsData>();
 
         List<InitDashData> cat1 = new ArrayList<InitDashData>();
@@ -81,12 +81,26 @@ public class GetParseData extends Activity {
 
 
     public boolean isDatabaseExist() {
-
+        Log.i("getparsedata", "isDatabaseExist() start");
         checkDB = null;
+
+        //checking to see if exernal sotrage is avaible to write to
+
+        if(!isExternalStorageAvailable() || isExternalStorageReadOnly()){
+            Log.i("getparsedata Storage Not available", "NOT");
+        }
+        else{
+
+            Log.i("getparsedata Storage is available", "IS");
+        }
+
         //  Do not hardcode "/data/"; use Context.getFilesDir().getPath() instead less... (Ctrl+F1)
-        //  Your code should not reference the /sdcard path directly; instead use Environment.getExternalStorageDirectory().getPath().  Similarly, do not reference the /data/data/ path directly; it can vary in multi-user scenarios. Instead, use Context.getFilesDir().getPath().
+        //  Your code should not reference the /sdcard path directly; instead use Environment.getExternalStorageDirectory().getPath().
+        // Similarly, do not reference the /data/data/ path directly; it can vary in multi-user scenarios. Instead, use Context.getFilesDir().getPath().
         try {
-            checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+            Log.i("getparsedata try checkDB", "start");
+            checkDB = SQLiteDatabase.openDatabase(Environment.getExternalStorageDirectory()+"/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+          //  checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
             checkDB.close();
         }
         catch(SQLiteCantOpenDatabaseException e ){
@@ -100,10 +114,34 @@ public class GetParseData extends Activity {
             Log.i("ShukDash", "Check DB is true");
             return true;
         }
+
+    }
+
+    private static boolean isExternalStorageAvailable() {
+        Log.i("getparsedata", "isExternalStorageAvailable() start");
+        String extStorageState = Environment.getExternalStorageState();
+        if(extStorageState.equals(Environment.MEDIA_MOUNTED))
+        {
+            Log.i("getparsedata", "isExternalStorageAvailable() true");
+            return true;}
+        Log.i("getparsedata", "isExternalStorageAvailable() false");
+        return false;
+    }
+
+    private static boolean isExternalStorageReadOnly() {
+        Log.i("getparsedata", "isExternalStorageReadOnly() start");
+        String extStorageState = Environment.getExternalStorageState();
+        if(extStorageState.equals(Environment.MEDIA_MOUNTED_READ_ONLY))
+        { Log.i("getparsedata", "isExternalStorageReadOnly() true");
+            return true;}
+        Log.i("getparsedata", "isExternalStorageReadOnly() false");
+        return false;
     }
 
     public boolean isDataBaseContainData(){
-        checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+        Log.i("getparsedata", "isDataBaseContainData() start");
+      //  checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+        checkDB = SQLiteDatabase.openDatabase(Environment.getExternalStorageDirectory()+"/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
         Cursor isData=null;
         String query = "SELECT * FROM missions WHERE cat_code = 1" ;
         String queryTableExists = "select name from sqlite_master where type='table'";

@@ -1,77 +1,165 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="8dp"
-    tools:context="com.app.shukdash.Views.fragments.PointsTimeFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/lightGrey"
+              android:orientation="horizontal"
+              android:paddingBottom="8dp"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp"
+              android:paddingTop="@dimen/activity_vertical_margin"
 
-    <TextView
-        android:id="@+id/txtVFragmentClock"
-        android:text="Fragment points Clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+              tools:context="com.app.shukdash.Views.fragments.PointsTimeFragment">
 
-           <TextView
-            android:id="@+id/TxtVDashTasksCompleted"
-            style="@style/DashGridLayChildren"
-            android:text="@string/tasks_completed_"
-            android:layout_below="@id/txtVFragmentClock"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/TxtVDashTasksCompletedDisplay"
-            style="@style/DashGridLayChildren"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@+id/TxtVDashTasksCompleted"
-            android:layout_alignTop="@+id/TxtVDashTasksCompleted"/>
+    <LinearLayout
+        android:id="@+id/RelLayTimer"
+        android:layout_width="0dp"
+        android:layout_height="108dp"
+        android:layout_weight="1"
+        android:background="@color/lightestGrey"
+        android:orientation="horizontal"
+        >
 
-        <TextView
-            android:id="@+id/TxtVDashTasksRemaining"
-            style="@style/DashGridLayChildren"
-            android:text="@string/tasks_remaining_"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/TxtVDashTasksCompletedDisplay"
-            android:layout_alignTop="@+id/TxtVDashTasksCompleted"
-            />
+        <ImageView
+            android:id="@+id/ImgVTimer"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/clock"/>
 
-        <TextView
-            android:id="@+id/TxtVDashTasksRemainingDisplay"
-            style="@style/DashGridLayChildren"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/TxtVDashTasksRemaining"
-            android:layout_alignTop="@+id/TxtVDashTasksRemaining"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-        <TextView
-            android:id="@+id/TxtVDashTotalPotentialPoints"
-            style="@style/DashGridLayChildren"
-            android:text="@string/total_points_so_far"
-            android:layout_toRightOf="@+id/TxtVDashTasksRemainingDisplay"
-            android:layout_alignTop="@+id/TxtVDashTasksRemainingDisplay"
-            android:layout_marginLeft="24dp"
-            />
+            <TextView
+                android:id="@+id/TxtVDashTimeRemainingDisplay"
+                style="@style/DashGridLayChildren"
+
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"/>
+
+            <TextView
+                android:id="@+id/TxtVDashTimeRemaining"
+                style="@style/DashGridLayChildren"
+                android:layout_marginTop="8dp"
+                android:textSize="24sp"
+                android:gravity="center_horizontal"
+                android:text="@string/time_remaining_"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.28"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinLayTasksRemainCompletedHolder"
+        android:layout_width="0dp"
+        android:layout_height="108dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/LinLayTasksCompleted"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_marginBottom="8dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/TxtVDashTasksCompletedDisplay"
+                style="@style/DashGridLayChildren"
+                android:layout_marginLeft="24dp"
+                android:layout_weight="1"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/TxtVDashTasksCompleted"
+                style="@style/DashGridLayChildren"
+                android:layout_marginTop="8dp"
+                android:layout_weight="2"
+                android:textSize="24sp"
+                android:text="@string/tasks_completed_"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinLayTasksRemaining"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/TxtVDashTasksRemainingDisplay"
+                style="@style/DashGridLayChildren"
+                android:layout_marginLeft="24dp"
+                android:layout_weight="1"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/TxtVDashTasksRemaining"
+                style="@style/DashGridLayChildren"
+                android:text="@string/tasks_remaining_"
+                android:layout_weight="2"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinLayTotalPointsContainer"
+        android:layout_width="0dp"
+        android:layout_height="108dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/TxtVDashTotalPotentialPointsDisplay"
             style="@style/DashGridLayChildren"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/TxtVDashTotalPotentialPoints"
-            android:layout_alignTop="@+id/TxtVDashTotalPotentialPoints"/>
+            android:background="@drawable/color_circle"
+            android:layout_gravity="center"
+            android:textSize="24sp"
+            android:text="111"
+            android:textAlignment="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"/>
 
         <TextView
-            android:id="@+id/TxtVDashTimeRemaining"
+            android:id="@+id/TxtVDashTotalPotentialPoints"
             style="@style/DashGridLayChildren"
-            android:text="@string/time_remaining_"
-            android:layout_marginTop="8dp"
-            android:layout_below="@+id/TxtVDashTasksRemaining"
-           android:layout_alignLeft="@+id/TxtVDashTasksRemaining"/>
 
-        <TextView
-            android:id="@+id/TxtVDashTimeRemainingDisplay"
-            style="@style/DashGridLayChildren"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/TxtVDashTimeRemaining"
-            android:layout_alignTop="@+id/TxtVDashTimeRemaining"/>
+            android:text="@string/total_points_so_far"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"
+            android:layout_marginTop="8dp"/>
 
-</RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

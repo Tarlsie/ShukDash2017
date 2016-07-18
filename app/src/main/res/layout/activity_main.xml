@@ -6,37 +6,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.app.shukdash.Views.MainActivity" >
+    tools:context="com.app.shukdash.Views.MainActivity"
+    android:background="@drawable/splash_bg">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="WELCOME TO"
-        android:id="@+id/textView"
-        android:layout_alignTop="@+id/txtVdashEntryTask"
-        android:layout_marginTop="102dp"
-        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="THE MACHANE YEHUDA"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+    <ImageView
+        android:id="@+id/ImgVSplashAppLogo"
+        style="@style/screen1AppLogo"
+        android:background="@drawable/logo"
+        />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="SHUK DASH"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
-
+    <ImageView
+        style="@style/screen1Logo"
+        android:background="@drawable/scaventures_logo"
+        android:id="@+id/ImgVSplashCoLogo"
+        />
 
 </RelativeLayout>

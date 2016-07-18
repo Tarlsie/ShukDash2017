@@ -1,18 +1,10 @@
 package com.app.shukdash.Views;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.graphics.Color;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,9 +29,6 @@ import com.example.shukdash.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.StringTokenizer;
 
 public class TasksDisplay extends AppCompatActivity  {
 
@@ -50,24 +39,16 @@ public class TasksDisplay extends AppCompatActivity  {
         setContentView(R.layout.activity_tasks_display);
 
 
-
         Intent i = getIntent();
         int num = i.getIntExtra("Category", 0);
         Log.i("ShukDash TasksDisplay", "Category number " + String.valueOf(num));
 
-       // Toast.makeText(this, "Category "+num, Toast.LENGTH_LONG).show();
         TextView txtVCatTitle = (TextView)findViewById(R.id.txtVTaskCategoryTitle);
 
         ShukDashDB db = new ShukDashDB(getApplicationContext());
         Cursor c = db.getTaskListDetails(num);
 
-       // String dataDump = DatabaseUtils.dumpCursorToString(c);
-       // Log.i("ShukDash", "Task Display : Cursor Dump to string " + dataDump);
 
-
-
-       // SharedPreferences prefs=null ;
-       // prefs = getSharedPreferences("category"+num, Context.MODE_APPEND);
         switch (num){
             case 1:
 
@@ -75,27 +56,27 @@ public class TasksDisplay extends AppCompatActivity  {
                 txtVCatTitle.setText("Category :-  Performing Arts");
                 break;
             case 2:
-               // prefs = getSharedPreferences("category2", Context.MODE_APPEND);
+
                 Log.i("ShukDash", "prefs category "+String.valueOf(num));
                 txtVCatTitle.setText("Category :-  Shuk Dash Special");
                 break;
             case 3:
-              //  prefs = getSharedPreferences("category3", Context.MODE_APPEND);
+
                 Log.i("ShukDash", "prefs category "+String.valueOf(num));
                 txtVCatTitle.setText("Category :-  Meet and Greet");
                 break;
             case 4:
-              //  prefs = getSharedPreferences("category4", Context.MODE_APPEND);
+
                 Log.i("ShukDash", "prefs category "+String.valueOf(num));
                 txtVCatTitle.setText("Category :-  Shuk-tionary");
                 break;
             case 5:
-             //   prefs = getSharedPreferences("category5", Context.MODE_APPEND);
+
                 Log.i("ShukDash", "prefs category "+String.valueOf(num));
                 txtVCatTitle.setText("Category :-  GR8 2 Navigate");
                 break;
             case 6:
-              //  prefs = getSharedPreferences("category6", Context.MODE_APPEND);
+
                 Log.i("ShukDash", "prefs category "+String.valueOf(num));
                 txtVCatTitle.setText("Category :-  SNAP");
                 break;
@@ -217,23 +198,6 @@ public class TasksDisplay extends AppCompatActivity  {
 
 
 
-    /*
-
-     int numOfTasks = prefs.getInt("catLength",0);
-        Log.i("ShukDash", "numofTasks "+String.valueOf(numOfTasks));
-
-        List<String> numbers = new ArrayList<String>();
-        for (int l =0;l<numOfTasks;l++){
-            String a = String.valueOf(l+1);
-            Log.i("ShukDash", "numofTasks String value "+a);
-            numbers.add(a);
-        }
-    String d = prefs.getString("Description" + j, "");
-     int d = prefs.getInt("Points" + k, 0);
-    boolean t = prefs.getBoolean("Ticked" + k, false);
-    String t = prefs.getString("Answer" + k, "");
-     */
-
     public class ExpandableListAdapter extends BaseExpandableListAdapter  {
 
         onSaveUpdateFragment updateFragment;
@@ -313,10 +277,6 @@ public class TasksDisplay extends AppCompatActivity  {
                 convertView = inflater.inflate(R.layout.task_description, null);
             }
 
-        //    Log.i("ShukDash", "numbers has " + String.valueOf(taskNum.size()));
-         //   Log.i("ShukDash", "descriptions has " + String.valueOf(description.size()));
-         //   Log.i("ShukDash", "points has " + String.valueOf(points.size()));
-         //   Log.i("ShukDash", "groupPosition is " + String.valueOf(groupPosition));
 
             TextView taskNumber = (TextView)convertView.findViewById(R.id.txtVTaskNumber);
             taskNumber.setText(taskNum.get(groupPosition));
@@ -326,10 +286,6 @@ public class TasksDisplay extends AppCompatActivity  {
 
             TextView descriptionTxtView = (TextView)convertView.findViewById(R.id.txtVDescription);
             descriptionTxtView.setText(description.get(groupPosition));
-
-        //    long packedPosition = ExpandableListView.getPackedPositionForGroup(groupPosition);
-        //    int positionType = ExpandableListView.getPackedPositionType(packedPosition);
-        //    Log.i("Shukdash", "packedposition " +packedPosition + "position type "+positionType);
 
 
             /////////////////
@@ -357,39 +313,39 @@ public class TasksDisplay extends AppCompatActivity  {
         }
 
         EditText answer=null;
+        Button saveAnswers;
+        Button takeAPic=null;
+
         @Override
         public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             correctAnswer = false;
 
-            Button takeAPic=null;
 
-
-           // Log.i("ShukDash", "group position is "+groupPosition);
-          //  Log.i("ShukDash", "child position is "+childPosition);
-           // pointsTotal = pref.getInt("catPointsTotal", 0);
-           // Log.i("ShukDash", "initial points total is "+pointsTotal);
-
-            if(convertView==null){
+            if(convertView==null) {
                 LayoutInflater inflater = (LayoutInflater) this.c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.task_enter_answers, null);
-             /*   if(isFBAnswer.equals(1)&&isPhotoAnswer.equals(1)) {
-                    convertView = inflater.inflate(R.layout.task_enter_answers_photo_and_fb, null);
-                }
-                if(isPhotoAnswer.equals(1)) {
-                    convertView = inflater.inflate(R.layout.task_enter_answers_photo_only, null);
-
-                }
-                else if(isTextAnswer.equals(1)) {
-                    convertView = inflater.inflate(R.layout.task_enter_answers_text_only, null);
-
-                }*/
+             //  convertView = inflater.inflate(R.layout.task_enter_answers_text_only, null);
             }
+             //   if(isFBAnswer.equals(1)&&isPhotoAnswer.equals(1)) {
+             //       convertView = inflater.inflate(R.layout.task_enter_answers_photo_and_fb, null);
+             // Button postFB = (Button)convertView.findViewById(R.id.btnPostFB);
+             //   }
 
-          //  takeAPic = (Button)convertView.findViewById(R.id.btnTakePic);
-            //Button postFB = (Button)convertView.findViewById(R.id.btnPostFB);
-            Button saveAnswers = (Button)convertView.findViewById(R.id.btnSaveAnswers);
-            //final EditText answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
-            answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
+            /*
+           if(isPhotoAnswer.equals(1)) {
+                LayoutInflater inflater = (LayoutInflater) this.c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    convertView = inflater.inflate(R.layout.task_enter_answers_photo_only, null);
+                   takeAPic = (Button)convertView.findViewById(R.id.btnTakePic);
+               saveAnswers = (Button)convertView.findViewById(R.id.btnSaveAnswers);
+                }
+           else if(isTextAnswer.equals(1)) {
+                LayoutInflater inflater = (LayoutInflater) this.c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+               convertView = inflater.inflate(R.layout.task_enter_answers_text_only, null);
+               saveAnswers = (Button)convertView.findViewById(R.id.btnSaveAnswers);
+                   answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
+                }
+*/
+
 
             if (answers.get(groupPosition)!=null){
                 answer.setText(answers.get(groupPosition));
@@ -423,7 +379,7 @@ In each case the relevant buttons and views will be displayed and hidden
 
 */
 
-            final View v = convertView;
+            final View cv = convertView;
             final int answerForGroup = groupPosition;
             saveAnswers.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -431,29 +387,28 @@ In each case the relevant buttons and views will be displayed and hidden
                     Log.i("ShukDash", "on click");
                     String answerText = null;
 
-                  //  if(v.getId()==R.layout.task_enter_answers_text_only)
-
+                    //if(v.get==R.layout.task_enter_answers_text_only)
+               // if(isTextAnswer.equals(1)) {
                     if (answer.getText() != null) {
                         answerText = answer.getText().toString();
-                        Log.i("ShukDash", "TasksDisplay Set answer and isAnswered save to DB: catCode- "+num +" taskNum " +(groupPosition+1));
-                       boolean result = db.setAnswerForTask(num ,groupPosition+1 , answerText, 1);
+                        Log.i("ShukDash", "TasksDisplay Set answer and isAnswered save to DB: catCode- " + num + " taskNum " + (groupPosition + 1));
+                        boolean result = db.setAnswerForTask(num, groupPosition + 1, answerText, 1);
 
-                        if (result){
+                        if (result) {
                             Log.i("ShukDash", "TasksDisplay setAnswersForTask " + groupPosition + " Success");
                             Toast.makeText(getApplicationContext(), "Results successfully saved", Toast.LENGTH_LONG).show();
                             int tasksValue = Integer.valueOf(taskNum.get(groupPosition));
 
-                            Log.i("ShukDash setPoints", " points "+points.get(groupPosition) );
+                            Log.i("ShukDash setPoints", " points " + points.get(groupPosition));
                             obs.setPoints(points.get(groupPosition));
                             Log.i("ShukDash setTasks", " tasks " + tasksValue);
                             obs.setTask(tasksValue);
 
-                           // obs.addObserver(data);
-                           // obs.notifyObservers(obs);
+                           //  obs.addObserver();
+                           //  obs.notifyObservers();
 
-                        }
-                        else if (!result){
-                            Log.i("ShukDash", "TasksDisplay setAnswersForTask "+groupPosition +" UNSUCCESSFUL");
+                        } else if (!result) {
+                            Log.i("ShukDash", "TasksDisplay setAnswersForTask " + groupPosition + " UNSUCCESSFUL");
                             Toast.makeText(getApplicationContext(), "Results successfully saved", Toast.LENGTH_LONG).show();
                         }
 
@@ -463,6 +418,10 @@ In each case the relevant buttons and views will be displayed and hidden
                     answerText = answer.getText().toString();
                     Log.i("ShukDash", "EditText text is " + answerText);
                     Toast.makeText(c, "Save Answers button Pressed " + answerText, Toast.LENGTH_LONG).show();
+               // }
+                //    if(isPhotoAnswer.equals(1)) {
+                //        Toast.makeText(getApplicationContext(), "Photo answer" , Toast.LENGTH_SHORT).show();
+                //    }
 
                     //////
                     ///update the points total in the pointstotal fragment

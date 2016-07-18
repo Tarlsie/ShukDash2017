@@ -1,34 +1,147 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/splash_bg"
+
+   >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   style="@style/splashScreenBorder"
+              android:orientation="vertical"
+                android:background="@color/deep_red"
     tools:context="com.app.shukdash.Views.PlayerDetails">
 
-    <TextView android:text="Enter a Team Name:"
-        android:layout_marginTop="88dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView android:text="@string/EnterTeamName"
+        android:layout_marginTop="60dp"
+        style="@style/screenHeadlines"
+
         android:id="@+id/txtVTeamName"
-        android:layout_marginRight="16dp"/>
+
+        android:gravity="center_horizontal"/>
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:id="@+id/edTxtTeamName"
-        android:layout_alignBottom="@+id/txtVTeamName"
-        android:layout_toRightOf="@+id/txtVTeamName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:minWidth="200dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/abc_list_pressed_holo_dark"
+        android:textSize="30sp"/>
+
+    <TextView android:text="@string/howMnay"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/screenHeadlines"
+              android:id="@+id/txtVHowMany"
+              android:gravity="center_horizontal"
+              android:layout_marginTop="32dp"/>
+
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/spinPlayerNum"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Press to Continue"
+        android:text="@string/continue1"
+        style="@style/btnPadding"
         android:id="@+id/btnTeamName"
-        android:layout_below="@+id/txtVTeamName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn1"/>
+</LinearLayout>
+</LinearLayout>
 
-</RelativeLayout>
+<!--
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:id="@+id/LinLRowWoman"
+android:layout_marginTop="16dp"
+android:layout_gravity="center_horizontal">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imgWoman"
+    />
+
+<ImageButton
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imgBtnAddWomen"/>
+</LinearLayout>
+
+
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:id="@+id/LinLRowMen"
+android:layout_gravity="center_horizontal"
+android:layout_marginTop="16dp">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imgMen"/>
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:id="@+id/imgBtnAddMen"/>
+</LinearLayout>
+
+
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:id="@+id/LinLRowChildGirl"
+android:layout_gravity="center_horizontal"
+android:layout_marginTop="16dp">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imgGirl"/>
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:id="@+id/imgBtnAddGirl"/>
+</LinearLayout>
+
+
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:id="@+id/LinLRowBoy"
+android:layout_gravity="center_horizontal"
+android:layout_marginTop="16dp">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imgBoy"/>
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:id="@+id/imgBtnAddBoy"/>
+</LinearLayout>
+
+-->

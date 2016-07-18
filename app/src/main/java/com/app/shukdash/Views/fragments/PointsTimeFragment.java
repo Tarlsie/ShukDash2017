@@ -243,26 +243,3 @@ public class PointsTimeFragment extends Fragment implements Observer, onSaveUpda
 }
 
 
-/*
-SharedPreferences prefs=null ;
-
-        prefs = getActivity().getApplicationContext().getSharedPreferences("category1", Context.MODE_APPEND);
-        int catPoints = prefs.getInt("catPointsTotal", 0);
-        totalPointsNum = totalPointsNum+catPoints;
-        prefs = getActivity().getApplicationContext().getSharedPreferences("category2", Context.MODE_APPEND);
-        catPoints = prefs.getInt("catPointsTotal", 0);
-        totalPointsNum = totalPointsNum+catPoints;
-        prefs = getActivity().getApplicationContext().getSharedPreferences("category3", Context.MODE_APPEND);
-        catPoints = prefs.getInt("catPointsTotal", 0);
-        totalPointsNum = totalPointsNum+catPoints;
-        prefs = getActivity().getApplicationContext().getSharedPreferences("category4", Context.MODE_APPEND);
-        catPoints = prefs.getInt("catPointsTotal", 0);
-        totalPointsNum = totalPointsNum+catPoints;
-        prefs = getActivity().getApplicationContext().getSharedPreferences("category5", Context.MODE_APPEND);
-        catPoints = prefs.getInt("catPointsTotal", 0);
-        totalPointsNum = totalPointsNum+catPoints;
-        prefs = getActivity().getApplicationContext().getSharedPreferences("category6", Context.MODE_APPEND);
-        catPoints = prefs.getInt("catPointsTotal", 0);
-        totalPointsNum = totalPointsNum+catPoints;
-
- */

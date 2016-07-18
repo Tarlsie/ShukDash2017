@@ -1,8 +1,6 @@
 package com.app.shukdash.Views;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,19 +26,19 @@ public class Instructions extends AppCompatActivity {
         setContentView(R.layout.activity_instructions);
 
         instructionPresenter = new InstructionsPresenter(getApplicationContext());
-        TextView instructionsTitle = (TextView)findViewById(R.id.txtVInstructionsHeader);
+        TextView instructionsTitle = (TextView)findViewById(R.id.txtVWelcomeHeader);
 
         Intent i = getIntent();
        final String teamName = i.getStringExtra("TeamName");
-
-        instructionsTitle.setText("Welcome Team "+teamName);
+        final String numOfPlayers = i.getStringExtra("NumOfPlayers");
+        instructionsTitle.setText("Welcome Team "+teamName+" "+numOfPlayers);
 
 
         Button pressToStart = (Button)findViewById(R.id.btnPressStart);
         pressToStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Instructions.this, ShukDash.class);
+                Intent i = new Intent(Instructions.this, ShukDashMain.class);
                 i.putExtra("TeamName", teamName);
                 startActivity(i);
             }

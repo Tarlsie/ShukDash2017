@@ -4,12 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import com.parse.ParseException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -160,9 +157,9 @@ public class ShukDashDB extends SQLiteOpenHelper {
     public boolean isDatabaseExist(){
 
         SQLiteDatabase checkDB = null;
+        //checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
 
-
-            checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+            checkDB = SQLiteDatabase.openDatabase("/storage/extSdCsrd/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
             checkDB.close();
 
         if(checkDB==null)
