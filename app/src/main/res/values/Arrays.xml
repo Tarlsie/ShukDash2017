@@ -83,4 +83,60 @@
         <item name="Points5">5 Points</item>
     </string-array>
 
+    <string-array name="AnswersShukDash">
+        <item name="3">Eliyahu</item>
+    </string-array>
+
+    <string-array name="AnswersMeetGreet">
+        <item name="9a">Olam Umeloo</item>
+        <item name="9b">spices</item>
+        <item name="9c">drink mix</item>
+        <item name="10">Fish</item>
+    </string-array>
+
+    <string-array name="AnswersShukTionary">
+        <item name="1a">pastries</item>
+        <item name="1b">food</item>
+        <item name="1c">israeli</item>
+        <item name="1d">cakes</item>
+        <item name="1e">cookies</item>
+        <item name="2a">stall</item>
+        <item name="2b">shop</item>
+        <item name="3a">spice</item>
+        <item name="3b">coffee</item>
+        <item name="5a">gluten free flour</item>
+        <item name="5b">ethiopian flour</item>
+        <item name="6a">grind</item>
+        <item name="6b">techina</item>
+        <item name="6c">tehina</item>
+        <item name="6d">tahini</item>
+        <item name="6e">sesame</item>
+        <item name="6f">Melach HaTechina</item>
+    </string-array>
+
+    <string-array name="AnswersGR8Nav">
+        <item name="1">80</item>
+        <item name="1a">90</item>
+        <item name="2a">Bannai Street</item>
+        <item name="2b">Banai street</item>
+        <item name="2c">Bannai</item>
+        <item name="2d">Banai</item>
+        <item name="3a">HaEgoz</item>
+        <item name="3b">egoz</item>
+        <item name="4a">50</item>
+        <item name="4b">60</item>
+        <item name="5a">entrecote steak</item>
+        <item name="5b">skewered meat</item>
+        <item name="5c">turkey</item>
+        <item name="5d">skewered sweetbreads</item>
+        <item name="5e">duck liver</item>
+        <item name="5f">chicken hearts</item>
+        <item name="7a">juices</item>
+        <item name="7b">natural</item>
+        <item name="7c">medicines</item>
+        <item name="8a">Dates</item>
+        <item name="8b">Eggs</item>
+        <item name="8c">Nuts</item>
+    </string-array>
+    
 </resources>

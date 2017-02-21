@@ -23,6 +23,17 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="instructionTablet720FontStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="instructionTablet360FontStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
     <style name="dashTxtVCat">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">.2</item>
@@ -38,8 +49,8 @@
     </style>
 
     <style name="DashLinContainer">
-         <item name="android:layout_width">match_parent</item>
-          <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginLeft">10dp</item>
@@ -49,8 +60,6 @@
     <style name="DashGridLayChildren">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-
-
     </style>
 
     <style name="DashGridLayChildren1">
@@ -60,41 +69,49 @@
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:layout_marginBottom">4dp</item>
     </style>
+
     <color name="deep_red">#ff5653</color>
     <color name="instruction_bg">#0b90b1</color>
     <color name="instruction_bg_opacity">#249bb9</color>
     <color name="edittext_background">#fff</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="instruction_bg_4opacity">#6e0babb1</color>
     <color name="lightestGrey">#717373</color>
     <color name="lightGrey">#525556</color>
-    <color name="catTabArts">#901d5e</color>
-    <color name="catTabDash">#f6ab3e</color>
-    <color name="catTabShuktion">#ef5454</color>
-    <color name="catTabMeet">#da2f81</color>
-    <color name="catTabGR8">#184EB3</color>
-    <color name="catTabSnap">#2CD8DD</color>
+    <color name="catTabArts">#f6ab3e</color>
+    <color name="catTabDash">#da2f81</color>
+    <color name="catTabShuktion">#184EB3</color>
+    <color name="catTabMeet">#ef5454</color>
+    <color name="catTabGR8">#2CD8DD</color>
+    <color name="catTabSnap">#901d5e</color>
+    <color name="colorFAB1">#2196F3</color>
+    <color name="colorFAB2">#E040FB</color>
+
 
     <style name="screen1AppLogo">
-        <item name="android:layout_width">266.67dp</item>
-        <item name="android:layout_height">47.33dp</item>
-
-        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_width">320dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_marginTop">152dp</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
+
+
     <style name="screen1Logo">
-        <item name="android:layout_width">66.67dp</item>
-        <item name="android:layout_height">66.67dp</item>
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">160dp</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_below">@+id/ImgVSplashAppLogo</item>
-        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginTop">84dp</item>
     </style>
 
     <style name="textField">
-    <item name="android:background">#fff</item>
+        <item name="android:background">#fff</item>
         <item name="android:textSize">16dp</item>
-
     </style>
-`
+    `
+
     <style name="screenHeadlines">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -103,9 +120,10 @@
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
-        <style name="instructHead">
-            <item name="android:textColor">@color/white</item>
-        </style>
+    <style name="instructHead">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="splashScreenBorder">
         <item name="android:layout_marginLeft">12dp</item>
         <item name="android:layout_marginRight">12dp</item>
@@ -117,6 +135,39 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
+
+    <style name="fabWriteTaskStyle">
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginRight">64dp</item>
+        <item name="android:layout_gravity">right</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+
 </resources>
+

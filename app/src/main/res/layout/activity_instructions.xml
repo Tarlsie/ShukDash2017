@@ -3,74 +3,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/splash_bg"
+    android:orientation="vertical"
 
     >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/splashScreenBorder"
-        android:orientation="vertical"
-        android:background="@color/instruction_bg"
-        tools:context="com.app.shukdash.Views.Instructions">
-
-        <TextView
-            android:id="@+id/txtVWelcomeHeader"
-            android:text="@string/instructionsHeading"
-
-            android:layout_marginTop="12dp"
-            style="@style/screenHeadlines"
-            android:textColor="@color/white"
-            />
-
-    <TextView
-        android:id="@+id/txtVInstructionsHeader"
-        android:text="@string/instructionsHeading"
-
-        android:layout_marginTop="12dp"
-        style="@style/screenHeadlines"
-        android:textColor="@color/white"
-        />
 
 
-    <LinearLayout
-        android:layout_width="800dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="18dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:background="@color/instruction_bg_4opacity">
-        <TextView
+        <LinearLayout
+            style="@style/splashScreenBorder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="@string/YouWillReceive"
-            android:textColor="@color/white"
-            android:id="@+id/textView4"
-            android:layout_marginTop="8dp"
-             android:gravity="center_horizontal"/>
+            android:background="@color/instruction_bg"
+            android:orientation="vertical"
+            tools:context="com.app.shukdash.Views.Instructions">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="@string/teamPositions"
-        android:id="@+id/textView5"
-        android:textColor="@color/white"
-        android:layout_marginTop="24dp"
-        android:gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/txtVWelcomeHeader"
+                style="@style/screenHeadlines"
+
+                android:layout_marginTop="12dp"
+                android:text="@string/instructionsHeading"
+                android:textColor="@color/white"
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+
+                >
+
+            <LinearLayout
+                android:layout_width="800dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:background="@color/instruction_bg_4opacity"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/YouWillReceive"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/teamPositions"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"/>
 
 
-    <Button
-        android:text="@string/startGameBtn"
-        android:id="@+id/btnPressStart"
-        style="@style/btnPadding"
-        android:textColor="@color/white"
-        android:background="@drawable/btn2"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"/>
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btnPressStart"
+                    style="@style/btnPadding"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/btn2"
+                    android:text="@string/startGameBtn"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
 
-    </LinearLayout>
-    </LinearLayout>
+
+
+</LinearLayout>

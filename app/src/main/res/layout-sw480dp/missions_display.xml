@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CrdViewMissions"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+<RelativeLayout
+    android:background="@android:color/white"
+    android:id="@+id/relLayCrdVMissionTaskDisplay"
+    android:layout_width="170dp"
+    android:layout_height="148dp"
+    >
+
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:id="@+id/ImgVCrdVMissionDisplay"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        />
+    <View
+        android:id="@+id/viewRtImgBorder"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/catTabGR8"
+        android:layout_toEndOf="@+id/ImgVCrdVMissionDisplay"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Points"
+        android:textColor="@color/black"
+        android:layout_alignTop="@id/ImgVCrdVMissionDisplay"
+        android:id="@+id/txtVPoints"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_toEndOf="@id/ImgVCrdVMissionDisplay"
+        android:layout_marginTop="16dp"/>
+
+    <View
+        android:id="@+id/viewRtImgBorder2"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/catTabGR8"
+        android:layout_toEndOf="@+id/txtVPoints"/>
+
+    <View
+        android:id="@+id/viewBelowImgBorder"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/catTabGR8"
+        android:layout_below="@+id/ImgVCrdVMissionDisplay"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Number: "
+        android:textColor="@color/black"
+        android:id="@+id/txtVTaskNumberTitle"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_below="@id/viewBelowImgBorder"
+        android:layout_alignStart="@id/ImgVCrdVMissionDisplay"
+        android:layout_marginTop="12dp"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="##"
+        android:textColor="@color/black"
+        android:layout_below="@id/viewBelowImgBorder"
+        android:id="@+id/txtVTaskNumber"
+        android:layout_alignTop="@+id/txtVTaskNumberTitle"
+        android:layout_toRightOf="@id/txtVTaskNumberTitle"
+        android:layout_marginLeft="8dp"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Description"
+        android:textColor="@color/black"
+        android:id="@+id/txtVDescription"
+        android:layout_below="@+id/txtVTaskNumberTitle"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/imgVMissionCardSNAPDisplay"
+        android:visibility="invisible"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/txtVDescription"
+        />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/ic_completed"
+        android:id="@+id/imgVCompletedTick"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+</RelativeLayout>
+
+    </android.support.v7.widget.CardView>

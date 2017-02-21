@@ -31,8 +31,7 @@ public class Instructions extends AppCompatActivity {
         Intent i = getIntent();
        final String teamName = i.getStringExtra("TeamName");
         final String numOfPlayers = i.getStringExtra("NumOfPlayers");
-        instructionsTitle.setText("Welcome Team "+teamName+" "+numOfPlayers);
-
+        instructionsTitle.setText(getResources().getString(R.string.welcome_team, teamName));
 
         Button pressToStart = (Button)findViewById(R.id.btnPressStart);
         pressToStart.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +85,10 @@ public class Instructions extends AppCompatActivity {
                 Log.i("ShukDash ", "parse exception "+e.toString());
             }
 
+            return true;
+        }
+
+        if (id == R.id.reset_timer) {
             return true;
         }
 

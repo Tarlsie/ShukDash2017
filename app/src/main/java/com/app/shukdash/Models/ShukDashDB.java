@@ -33,6 +33,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
     private static final String ISTEXTINPUTANSWER = "is_text_answer";
     private static final String ISPHOTOANSWER = "is_photo_answer";
     private static final String ISFBANSWER = "is_fb_answer";
+    private static final String FILELOCATION = "file_location";
 
     private static final String CREATE_SHUKDASH_TABLE = "CREATE TABLE " + DB_TABLE + "("
             + ID + " INTEGER PRIMARY KEY, "
@@ -44,6 +45,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
             + POINTS + " INTEGER, "
             + ISANSWERED + " INTEGER DEFAULT 0, "
             + ANSWER + " TEXT, "
+            + FILELOCATION + " TEXT, "
             + ISTEXTINPUTANSWER + " INTEGER DEFAULT 0, "
             + ISPHOTOANSWER + " INTEGER DEFAULT 0, "
             + ISFBANSWER + " INTEGER DEFAULT 0);";
@@ -57,6 +59,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         super(context, DB_NAME, null, DATABASE_VERSION);
         this.contextDB = context;
+        Log.i("ShukDash", "ShukDashDB constructor");
     }
 
     @Override
@@ -106,8 +109,8 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
     }
 
-    public boolean inputInitialMissions(List<CatDetailsData> data){
-
+    public boolean inputInitialMissions(List<CatDetailsDataFB> data){
+        Log.i("ShukDash", "ShukDashDB inputInitialMissions");
         long result=-1;
         boolean isSuccessful = false;
 
@@ -122,6 +125,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
            cv.put(TASKNUM, data.get(i).getNumTasks());
            cv.put(DESCRIPTION, data.get(i).getDescription());
            cv.put(POINTS, data.get(i).getPoints());
+           cv.put(FILELOCATION, data.get(i).getFileLocation());
            cv.put(ISTEXTINPUTANSWER, data.get(i).getIsTextAnswer());
            cv.put(ISPHOTOANSWER, data.get(i).getIsPhotoAnswer());
            cv.put(ISFBANSWER, data.get(i).getIsFBAnswer());
@@ -132,11 +136,14 @@ public class ShukDashDB extends SQLiteOpenHelper {
            int catLength= data.get(i).getCatLength();
            int taskNum= data.get(i).getNumTasks();
            String description=data.get(i).getDescription() ;
+           String fileLoc = data.get(i).getFileLocation();
            int points =data.get(i).getPoints() ;
-
+           int isText = data.get(i).getIsTextAnswer();
+           int isFB = data.get(i).getIsFBAnswer();
+           int isPhoto = data.get(i).getIsPhotoAnswer();
            result = db.insert(DB_TABLE, null, cv);
 
-           Log.i("ShukDash", "initialMission Data : insert number "+i+" : " + catCode + " " + catName + " " + catLength+" "+taskNum+" "+description+" "+points);
+           Log.i("ShukDash", "initialMission Data : insert number "+i+" : " + catCode + " " + catName + " " + catLength+" "+taskNum+" "+description+" "+points+" "+isText+" "+isPhoto+" "+isFB+" "+fileLoc);
        }
 
         db.close();
@@ -161,7 +168,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
             checkDB = SQLiteDatabase.openDatabase("/storage/extSdCsrd/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
             checkDB.close();
-
+        Log.i("ShukDashDB", " isDatabaseExist : completed");
         if(checkDB==null)
         {Log.i("ShukDash", "Check DB is false");
             return false;}
@@ -193,7 +200,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
             data.add(catData);
 
         }
-
+        Log.i("ShukDashDB", " getAllMissionsDetails : completed");
         return data;
     }
 
@@ -219,19 +226,26 @@ public class ShukDashDB extends SQLiteOpenHelper {
             data.add(catData);
 
         }
+        Log.i("ShukDashDB", " getAllTasksInCategory : completed");
         return data;
     }
 
     public boolean setAnswerForTask(int catCode, int taskNum, String answer, int isAnswered){
-
+        Log.i("ShukDashDB", " setAnswerForTask : start");
         SQLiteDatabase db = this.getWritableDatabase();
+        Log.i("ShukDashDB", " setAnswerForTask : catCode "+catCode+" task num "+taskNum+" answer "+answer+" isanswered "+isAnswered);
+
+        String catCod = String.valueOf(catCode);
+        String taskN = String.valueOf(taskNum);
+        Log.i("ShukDashDB", " setAnswerForTask :Parsed string values: catCode "+catCod+" task num "+taskN);
 
         ContentValues cv = new ContentValues();
         cv.put(ANSWER, answer);
         cv.put(ISANSWERED, isAnswered);
 
-        long result = db.update(DB_TABLE, cv, CATCODE + "= ?" + " and " + TASKNUM + "= ?", new String[]{String.valueOf(catCode), String.valueOf(taskNum)});
-
+        long result = db.update(DB_TABLE, cv, CATCODE + "= ?" + " and " + TASKNUM + "= ?", new String[]{catCod, taskN});
+        Log.i("ShukDashDB", " setAnswerForTask : result "+result);
+        Log.i("ShukDashDB", " setAnswerForTask : completed");
         if(result==-1){
             return  false;
         }
@@ -243,8 +257,27 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
     }
 
-    public List<String> getCatNames(){
+    public String getAnswerForTask(int catCode, int taskNum){
+        Log.i("ShukDashDB", " getAnswerForTask : start");
+        String answer = "";
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String query = "SELECT "+ANSWER +" FROM "+DB_TABLE +" WHERE "+CATCODE +"="+catCode+ " AND "+TASKNUM+"="+taskNum;
+       // String[] cols = new String[]{ANSWER}; //{CATCODE, TASKNUM};
+
+     //   Cursor cursor = db.query(DB_TABLE,new String[]{ANSWER}, CATCODE+"=? "+ TASKNUM+"=?", new String[] {String.valueOf(catCode), String.valueOf(taskNum)},null, null,null  );
+          Cursor cursor =db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            answer = cursor.getString(0);
+            Log.i("ShukDash", "getAnswerForTask function - string: " + answer);
+            //answer = cursor.getString(0);
+            Log.i("ShukDashDB", " getAnswerForTask : answer from cursor= " + answer);
+        }
+        return answer;
+    }
+
+    public List<String> getCatNames(){
+        Log.i("ShukDashDB", " getCatNames : start");
         SQLiteDatabase db = this.getReadableDatabase();
 
         List<String> data = new ArrayList<String>();
@@ -259,12 +292,12 @@ public class ShukDashDB extends SQLiteOpenHelper {
             data.add(d);
 
         }
-
+        Log.i("ShukDashDB", " getCatNames : completed");
         return data;
     }
 
     public List<String> getNumOfTasks(){
-
+        Log.i("ShukDashDB", " getNumOfTasks : start");
         List<String> data = new ArrayList<String>();
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -274,16 +307,16 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         while (cursor.moveToNext()){
             String d = cursor.getString(0);
-            Log.i("ShukDash", "getNumOfTasks function - string: "+d);
+        //    Log.i("ShukDash", "getNumOfTasks function - string: "+d);
             data.add(d);
 
         }
-
+        Log.i("ShukDash", "getNumOfTasks function - completed");
         return data;
     }
 
     public List<String[]> getIsCompletedOrderedByCat(){
-
+        Log.i("ShukDashDB", " getIsCompletedOrderedByCat : start");
         List<String[]> data = new ArrayList<String[]>();
 
         SQLiteDatabase db =this.getWritableDatabase();
@@ -297,8 +330,8 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         String dataDump = DatabaseUtils.dumpCursorToString(cursor);
 
-        Log.i("ShukDash", "GetIsCompleted Cursor Dump to string "+dataDump);
-
+       // Log.i("ShukDash", "GetIsCompleted Cursor Dump to string "+dataDump);
+        Log.i("ShukDash", "GetIsCompleted completed");
         while (cursor.moveToNext()){
 
             String[] dataArray = new String[2];
@@ -311,13 +344,57 @@ public class ShukDashDB extends SQLiteOpenHelper {
                 dataArray[1]=d2;
             data.add(dataArray);
         }
-
+        Log.i("ShukDashDB", " getIsCompletedOrderedByCat : completed");
         return data;
+    }
+
+    public int getIsCompleted(int catCode, int taskNum){
+        Log.i("ShukDashDB", " getIsCompleted : start");
+        int result =-1;
+
+        SQLiteDatabase db =this.getWritableDatabase();
+
+        String query = "SELECT "+ISANSWERED +" FROM "+DB_TABLE +" WHERE "+CATCODE+"= "+catCode+ " AND "+TASKNUM+"="+taskNum;
+
+        Cursor cursor = db.rawQuery(query, null);
+        //String dataDump = DatabaseUtils.dumpCursorToString(cursor);
+        //Log.i("ShukDash", "GetIsCompleted for category: " +catCode+ " taskNum "+taskNum+" Cursor Dump to string "+dataDump);
+
+        while (cursor.moveToNext()){
+            result = cursor.getInt(0);
+            Log.i("ShukDash", "GetIsCompleted for category: " +catCode+ " taskNum "+taskNum+" Cursor to int "+result);
+        }
+
+        Log.i("ShukDashDB", " getIsCompleted : result = "+result);
+        Log.i("ShukDashDB", " getIsCompleted : completed");
+        return result;
+    }
+
+    public String getIsFileLocation(int catNum, int taskNum){
+        Log.i("ShukDashDB", " getIsFileLocation : start");
+        String location = "";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT "+FILELOCATION+" FROM "+DB_TABLE+" WHERE "+ CATCODE +" = "+ catNum  +" AND "+TASKNUM +" = "+taskNum;
+        Cursor c = db.rawQuery(query, null);
+
+        String dataDump = DatabaseUtils.dumpCursorToString(c);
+
+        Log.i("ShukDash", "getIsFileLocation for category: " +catNum+ " and task "+taskNum+" Cursor Dump to string "+dataDump);
+
+        while(c.moveToNext()){
+
+            String a = c.getString(0);
+            if(a!="")location=a;
+            Log.i("ShukDash", "DB getIsFileLocation "+a);
+        }
+        Log.i("ShukDashDB", " getIsFileLocation : completed");
+        return location;
     }
 
 
     public List<String[]> getIsCompletedByCatCode(int catCode){
-
+        Log.i("ShukDashDB", " getIsCompletedByCatCode : start");
         List<String[]> data = new ArrayList<String[]>();
 
         SQLiteDatabase db =this.getWritableDatabase();
@@ -330,8 +407,8 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         String dataDump = DatabaseUtils.dumpCursorToString(cursor);
 
-        Log.i("ShukDash", "GetIsCompletedByCatCode for category: " +catCode+ " Cursor Dump to string "+dataDump);
-
+    //    Log.i("ShukDash", "GetIsCompletedByCatCode for category: " +catCode+ " Cursor Dump to string "+dataDump);
+        Log.i("ShukDash", "GetIsCompletedByCatCode completed");
         while (cursor.moveToNext()){
 
             String[] dataArray = new String[2];
@@ -344,12 +421,12 @@ public class ShukDashDB extends SQLiteOpenHelper {
             dataArray[1]=d2;
             data.add(dataArray);
         }
-
+        Log.i("ShukDashDB", " getIsCompletedByCatCode : completed");
         return data;
     }
 
     public List<Integer> getAllIsCompleted(){
-
+        Log.i("ShukDashDB", " getAllIsCompleted : start");
         List<Integer> data = new ArrayList<>();
 
         SQLiteDatabase db =this.getWritableDatabase();
@@ -360,37 +437,37 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         String dataDump = DatabaseUtils.dumpCursorToString(cursor);
 
-        Log.i("ShukDash", "GetIsCompleted Cursor Dump to string "+dataDump);
-
+       // Log.i("ShukDash", "GetIsCompleted Cursor Dump to string "+dataDump);
+        Log.i("ShukDash", "GetIsCompleted data to Cursor" );
         while (cursor.moveToNext()){
 
             int d1 = cursor.getInt(0);
 
-               Log.i("ShukDash", "SQL Function getIsAnswered "+ d1 );
+            //   Log.i("ShukDash", "SQL Function getIsAnswered "+ d1 );
 
             data.add(d1);
         }
-
+        Log.i("ShukDashDB", "SQL Function getIsAnswered completed" );
         return data;
     }
     public Cursor getTaskListDetails(int categoryNum){
-
+        Log.i("ShukDashDB", " getTaskListDetails : start");
         Cursor cursor = null;
         SQLiteDatabase db = this.getWritableDatabase();
 
         String query = "SELECT "+ TASKNUM +" , "+ CATNAME +" , "+CATLENGTH   +" , "+ DESCRIPTION  +" , "+ POINTS +" , "+
-                ANSWER +" , "+ ISANSWERED   + " , "+ ISTEXTINPUTANSWER  +" , "+ ISPHOTOANSWER +" FROM "+DB_TABLE +" WHERE "+CATCODE +" = "+categoryNum;
+                ANSWER +" , "+ ISANSWERED   + " , "+ ISTEXTINPUTANSWER  +" , "+ ISPHOTOANSWER +" , "+ FILELOCATION+" FROM "+DB_TABLE +" WHERE "+CATCODE +" = "+categoryNum+ " ORDER BY "+ TASKNUM + " ASC";
 
         cursor = db.rawQuery(query,null);
 
-        String dumpCursor = DatabaseUtils.dumpCursorToString(cursor);
-        Log.i("ShukDash", " ShukDashDB : Cursor Dump to string "+dumpCursor);
-
+     //   String dumpCursor = DatabaseUtils.dumpCursorToString(cursor);
+     //   Log.i("ShukDash", " ShukDashDB : Cursor Dump to string "+dumpCursor);
+        Log.i("ShukDashDB", " getTaskListDetails : completed");
         return cursor;
     }
 
     public int getAllPointsTotal(){
-
+        Log.i("ShukDashDB", " getAllPointsTotal : start");
         int points = 0;
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -399,7 +476,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         String dataDump = DatabaseUtils.dumpCursorToString(c);
 
-        Log.i("ShukDash", "getAllPointsTotal Cursor Dump to string "+dataDump);
+       // Log.i("ShukDash", "getAllPointsTotal Cursor Dump to string "+dataDump);
 
 
         while(c.moveToNext()){
@@ -408,13 +485,14 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
             points = points+a;
 
-            Log.i("ShukDash", "DB getAllPointsTotal point "+a+ " new points total : "+points);
+      //      Log.i("ShukDash", "DB getAllPointsTotal point "+a+ " new points total : "+points);
         }
-
+        Log.i("ShukDash", "DB getAllPointsTotal point completed");
         return points;
     }
 
     public int getPointsByCatTotal(int catNum){
+        Log.i("ShukDashDB", " getPointsByCatTotal : start");
         int points = 0;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -434,12 +512,12 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
             Log.i("ShukDas", "DB getAllPointsTotal point "+a+ " new points total : "+points);
         }
-
+        Log.i("ShukDashDB", " getPointsByCatTotal : completed");
         return points;
     }
 
     public boolean deleteTable(){
-
+        Log.i("ShukDashDB", " deleteTable : start");
         SQLiteDatabase db = this.getWritableDatabase();
         String query = " delete from "+DB_TABLE;
         Cursor c = db.rawQuery(query, null);
@@ -452,7 +530,7 @@ public class ShukDashDB extends SQLiteOpenHelper {
     }
 
     public boolean resetAnswersSettings(){
-
+        Log.i("ShukDashDB", " resetAnswersSettings : start");
         SQLiteDatabase db = this.getWritableDatabase();
 
         String query = "update "+DB_TABLE +" SET " +ANSWER +" = null , " +ISANSWERED + " = 0 ";
@@ -462,5 +540,21 @@ public class ShukDashDB extends SQLiteOpenHelper {
 
         Log.i("ShukDash ", "DB update data - keep table");
         return true;
+    }
+
+    public Cursor getAllAnswers(){
+        Log.i("ShukDashDB", " getAllAnswers : start");
+        Cursor cursor = null;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String query = "SELECT "+ TASKNUM +" , "+ CATNAME +" , "+CATLENGTH   +" , "+ POINTS +" , "+
+                ANSWER + " , "+ ISTEXTINPUTANSWER  +" , "+ ISPHOTOANSWER +" FROM "+DB_TABLE ;
+
+        cursor = db.rawQuery(query,null);
+
+        String dumpCursor = DatabaseUtils.dumpCursorToString(cursor);
+        Log.i("ShukDash", " ShukDashDB : Cursor Dump to string "+dumpCursor);
+        Log.i("ShukDashDB", " getAllAnswers : completed");
+        return cursor;
     }
 }

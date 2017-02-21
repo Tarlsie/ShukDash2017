@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.app.shukdash.Presenters.ISaveTeamName;
+import com.app.shukdash.Interfaces.ISaveTeamName;
 import com.app.shukdash.Presenters.PlayerDetailsPresenter;
 import com.example.shukdash.R;
 
@@ -27,6 +27,8 @@ public class PlayerDetails extends AppCompatActivity implements ISaveTeamName, A
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_details);
+        Log.i("Shukdash PlayerDetails", "onCreate started");
+
         spinnerItem="1";
         Button enterTeamName = (Button)findViewById(R.id.btnTeamName);
         teamName = (EditText)findViewById(R.id.edTxtTeamName);
@@ -86,5 +88,46 @@ public class PlayerDetails extends AppCompatActivity implements ISaveTeamName, A
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Shukdash PlayerDetails", "onStart started");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Shukdash PlayerDetails", "onResume started");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Shukdash PlayerDetails", "onPause started");
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.i("Shukdash PlayerDetails", "onBackPressed started");
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("FromPlayerDetailsActivity", true);
+        Log.i("Shukdash PlayerDetails", "onBackPressed intent ready");
+        startActivity(i);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Shukdash PlayerDetails", "onStop started");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Shukdash PlayerDetails", "onDestroy started");
     }
 }

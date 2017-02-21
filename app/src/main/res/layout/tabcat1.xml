@@ -3,14 +3,57 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-    android:background="@color/catTabArts">
+    android:background="@color/catTabArts"
+              >
 <TextView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="0dp"
     android:id="@+id/tabTextView"
     android:textColor="@color/white"
-    android:text="Hi"
+    android:text="Performing Arts"
     android:textSize="20sp"
-    android:gravity="center"
-    android:padding="8dp"/>
+    android:layout_marginTop="12dp"
+    android:layout_weight="1"
+    android:gravity="center_horizontal"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TxtVToDoTab1"
+            android:textColor="@color/white"
+            android:text="0"
+            android:textSize="20sp"
+
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TxtVSlash"
+            android:textColor="@color/white"
+            android:text=" / "
+            android:textSize="20sp"
+
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TxtVDoneTab1"
+            android:textColor="@color/white"
+            android:text="3"
+            android:textSize="20sp"
+
+
+            />
+
+    </LinearLayout>
 </LinearLayout>

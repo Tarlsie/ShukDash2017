@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="lib-0.0.5">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/e48569d51b18bdd9846a9ca014921c498009afdb/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/e48569d51b18bdd9846a9ca014921c498009afdb/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ragnarok.rxcamera/lib/0.0.5/6a04ab4123cb1af8f252d9dc3f06ffbf5ba2d0fe/lib-0.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

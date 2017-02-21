@@ -45,6 +45,7 @@ public class GetParseData extends Activity {
 
         List<InitDashData> parseData = new ArrayList<InitDashData>();
         ParseQuery<InitDashData> query = new ParseQuery<InitDashData>("shukDashJerDetails");
+      //  ParseQuery<InitDashData> query = new ParseQuery<InitDashData>("ShukDashMachaneYehuda");
         ShukDashDB db = new ShukDashDB(contextOfApp);
 
 
@@ -55,7 +56,7 @@ public class GetParseData extends Activity {
             Log.i("Parse query", "size is: " + String.valueOf(i));
 
             for (InitDashData info : parseData) {
-
+                Log.i("getparsedata parseQuery()", "pass parse data to arrays");
                 CatDetailsData newData = new CatDetailsData();
                 newData.setCategoryCode(info.getCategoryCode());
                 newData.setCategoryName(info.getCategoryName());
@@ -63,28 +64,32 @@ public class GetParseData extends Activity {
                 newData.setNumTasks(info.getTaskNumber());
                 newData.setDescription(info.getDescription());
                 newData.setPoints(info.getPoints());
+                newData.setFileLocation(info.getFileLocation());
+                newData.setIsTextAnswer(info.getIsTextAnswer());
+                newData.setIsPhotoAnswer(info.getIsPhotoAnswer());
+                newData.setIsFBAnswer(info.getIsFBAnswer());
+                newData.setIsAnswered(info.getIsFBAnswer());
                 missions.add(newData);
 
-
             }
+            Log.i("getparsedata parseQuery()", "save array data to local database");
+          //  boolean isDBDataSuccessfull = db.inputInitialMissions(missions);
+            boolean isDBDataSuccessfull = false;
 
-            db.inputInitialMissions(missions);
-
-
-            return true;
+            return isDBDataSuccessfull;
         } catch (ParseException e) {
-            Log.i("Parse exception", e.toString());
+            Log.i("Parse exception", e.toString() +" "+e.getLocalizedMessage() +" "+ e.getCode());
             return false;
         }
 
     }
 
 
-    public boolean isDatabaseExist() {
+    public int isDatabaseExist() {
         Log.i("getparsedata", "isDatabaseExist() start");
         checkDB = null;
 
-        //checking to see if exernal sotrage is avaible to write to
+        //checking to see if exernal storage is available to write to
 
         if(!isExternalStorageAvailable() || isExternalStorageReadOnly()){
             Log.i("getparsedata Storage Not available", "NOT");
@@ -107,12 +112,32 @@ public class GetParseData extends Activity {
             Log.i("ShkDash", "GetparseData isDBExist SQLiteCantOpenDatabaseException "+e.toString());
         }
 
-        if (checkDB == null) {
-            Log.i("ShukDash", "Check DB is false");
-            return false;
-        } else {
-            Log.i("ShukDash", "Check DB is true");
-            return true;
+        if(checkDB==null) {
+            Log.i("ShukDash", "Check DB is false, check second config");
+            try {
+                Log.i("getparsedata try checkDB", "start");
+
+                checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+                checkDB.close();
+            }
+            catch(SQLiteCantOpenDatabaseException e ){
+                Log.i("ShkDash", "GetparseData isDBExist SQLiteCantOpenDatabaseException "+e.toString());
+            }
+
+            if (checkDB == null) {
+                Log.i("ShukDash", "DB is false");
+
+                return 0;
+            }
+            Log.i("ShukDash", "Check DB is true /data/data/com.example.shukdash/databases/shukDash_MachaneYehuda");
+
+            return 2;
+        }
+
+        else {
+            Log.i("ShukDash", "Check DB is true Environment.getExternalStorageDirectory()+\"/shukDash_MachaneYehuda");
+
+            return 1;
         }
 
     }
@@ -138,10 +163,18 @@ public class GetParseData extends Activity {
         return false;
     }
 
-    public boolean isDataBaseContainData(){
+    public boolean isDataBaseContainData(int whichDBPath){
         Log.i("getparsedata", "isDataBaseContainData() start");
       //  checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
-        checkDB = SQLiteDatabase.openDatabase(Environment.getExternalStorageDirectory()+"/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+        if(whichDBPath==1) {
+            checkDB = SQLiteDatabase.openDatabase(Environment.getExternalStorageDirectory() + "/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+        }
+        else if(whichDBPath==2) {
+
+                checkDB = SQLiteDatabase.openDatabase("/data/data/com.example.shukdash/databases/shukDash_MachaneYehuda", null, SQLiteDatabase.OPEN_READONLY);
+          }
+
+
         Cursor isData=null;
         String query = "SELECT * FROM missions WHERE cat_code = 1" ;
         String queryTableExists = "select name from sqlite_master where type='table'";
@@ -161,6 +194,7 @@ public class GetParseData extends Activity {
             return false;
         } else {
             Log.i("ShukDash", "Check DB is true");
+            checkDB.close();
             return true;
         }
     }
@@ -207,10 +241,12 @@ public class GetParseData extends Activity {
 
                 Log.i("Presenter Parse Cat", "begining shared pref");
 
-                edit.putString("Name" + i, catData.get(i).getCategoryName().toString());
-                edit.putString("Description" + i, catData.get(i).getDescription().toString());
+                edit.putString("Name" + i, catData.get(i).getCategoryName());
+                edit.putString("Description" + i, catData.get(i).getDescription());
                 edit.putInt("Points" + i, catData.get(i).getPoints());
                 edit.putBoolean("Ticked" + i, false);
+                edit.putInt("IsTextAns"+i, catData.get(i).getIsTextAnswer());
+                edit.putInt("IsPhotoAns"+i, catData.get(i).getIsPhotoAnswer());
                 edit.commit();
 
                 Log.i("Presenter Parse Cat", "end shared pref");

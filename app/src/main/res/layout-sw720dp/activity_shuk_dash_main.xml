@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    tools:context="com.app.shukdash.Views.ShukDashMain"
+    android:background="@drawable/screen_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                >
+
+
+
+    <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ClockPointsFragment1"
+        android:name="com.app.shukdash.Views.fragments.PointsTimeFragment"
+        tools:layout="@layout/fragment_points_time"
+        android:layout_marginTop="40dp"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/TabLayCategories"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:tabMinWidth="250dp"
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp"
+        app:tabPaddingEnd="4dp"
+        app:tabPaddingStart="4dp"
+        android:paddingBottom="8dp"
+        android:layout_below="@+id/ClockPointsFragment1"
+        app:tabMode="scrollable"
+        />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/missionDisplayByCatInRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/TabLayCategories"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginTop="0dp"
+        />
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/finish_btn216"
+
+        android:id="@+id/imgBtnEndGame"
+        android:layout_below="@+id/missionDisplayByCatInRecyclerView"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
+</ScrollView>
+    <!--
+
+<android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+        android:layout_below="@+id/missionDisplayByCatInRecyclerView"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/finish_btn"
+        android:id="@+id/FabCompleteGame"
+        app:srcCompat="@drawable/finish_btn"/>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/ViewpagerMissionsDisplay"
+
+        android:layout_below="@id/missionDisplayByCatInRecyclerView"
+        />
+     android:layout_below="@id/missionDisplayByCatInRecyclerView"
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/missionDisplayByCatInRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/TabLayCategories"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            >
+
+
+            <RelativeLayout
+                android:background="@android:color/holo_blue_bright"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+
+                android:backgroundTint="#a11c1c">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Task Number: "
+                        android:id="@+id/txtVTaskNumberTitle"
+                        android:layout_marginLeft="16dp"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="##"
+                        android:layout_toRightOf="@+id/txtVTaskNumberTitle"
+                        android:id="@+id/txtVTaskNumber" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Points"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/txtVPoints"
+                        android:layout_marginRight="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Task Description"
+                        android:id="@+id/txtVDescription"
+                        android:layout_below="@+id/txtVTaskNumberTitle"
+                        android:layout_alignLeft="@+id/txtVTaskNumberTitle"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"/>
+
+            </RelativeLayout>
+
+
+
+        </android.support.v7.widget.RecyclerView>
+
+
+         <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/CrdViewMissions"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:cardElevation="4dp">
+
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerVShukDashCats"
+
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/ViewpagerMissionsDisplay"
+            android:layout_marginTop="16dp"/>
+       <fragment
+            android:name="com.app.shukdash.Views.fragments.CategoryRecycleView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ClockPointsFragment1"
+            android:id="@+id/CategoryRecyclerFragment"
+            tools:layout="@layout/fragment_cat_recyclerview" />
+    -->

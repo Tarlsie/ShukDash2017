@@ -30,7 +30,7 @@ public class PointsTimeFragment extends Fragment implements Observer, onSaveUpda
     ShukDashDB db;
 
     public PointsTimeFragment() {
-
+        Log.i("PointsTimeFragment", "constructor");
     }
     private Activity mActivity;
     OnSaveGameUpdateData dataValues ;
@@ -43,6 +43,7 @@ public class PointsTimeFragment extends Fragment implements Observer, onSaveUpda
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.i("PointsTimeFragment", "onCreateView");
         dataValues = new OnSaveGameUpdateData();
         // PointsTimeFragment ptf = new PointsTimeFragment();
         dataValues.addObserver(this);
@@ -90,7 +91,7 @@ public class PointsTimeFragment extends Fragment implements Observer, onSaveUpda
         points.setTextColor(Color.BLACK);
 
         time2 = (TextView)v.findViewById(R.id.TxtVDashTimeRemainingDisplay);
-        CountDownTimer count = new CountDownTimer(7200000, 1000) {
+        CountDownTimer count = new CountDownTimer(720000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -164,6 +165,8 @@ public class PointsTimeFragment extends Fragment implements Observer, onSaveUpda
     @Override
     public void onResume() {
         super.onResume();
+        Log.i("PointsTimeFragment", "onResume");
+
         totalPointsNum = 0;
         totalTasksAnswered = 0;
         tasksRemaining=0;

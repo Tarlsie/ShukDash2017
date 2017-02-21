@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.app.shukdash.Views.TaskMissionPhoto"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:background="@drawable/screen_bg"
+    android:orientation="vertical">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ClockPointsFragment2"
+        android:name="com.app.shukdash.Views.fragments.PointsTimeFragment"
+        tools:layout="@layout/fragment_points_time"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="8dp"/>
+
+    <RelativeLayout
+        android:id="@+id/outerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/catTabMeet"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+
+        >
+
+        <RelativeLayout
+            android:id="@+id/innerContainer"
+            android:background="@color/white"
+
+            android:layout_height="wrap_content"
+            android:minHeight="150dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:id="@+id/ImgVTaskMissionTypeDisplay"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:contentDescription="CameraImage"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+
+            <View
+                android:id="@+id/viewRtImgBorder"
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:layout_toEndOf="@+id/ImgVTaskMissionTypeDisplay"
+
+                android:background="@color/black"/>
+
+
+
+            <TextView
+                android:id="@+id/txtVPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/viewRtImgBorder"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Points"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+
+                android:layout_marginBottom="38dp"
+                android:textSize="12sp"/>
+
+            <View
+                android:id="@+id/viewBelowImgBorder"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/ImgVTaskMissionTypeDisplay"
+
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/txtVTaskNumberTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/viewBelowImgBorder"
+                android:text="Task "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:layout_toStartOf="@+id/viewRtImgBorder"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/txtVTaskNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/txtVTaskNumberTitle"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/txtVTaskNumberTitle"
+
+                android:text="##"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <View
+                android:id="@+id/viewSeparateTaskAnswerBorder"
+                android:layout_width="1dp"
+                android:layout_height="200dp"
+                android:layout_toEndOf="@+id/txtVPoints"
+                android:layout_alignTop="@+id/ImgVTaskMissionTypeDisplay"
+                android:background="@color/black"/>
+
+
+            <ImageView
+
+                android:layout_width="200dp"
+                android:id="@+id/cameraViewDisplay"
+                android:background="@color/white"
+                android:layout_alignParentEnd="true"
+                android:paddingStart="12dp"
+                android:paddingTop="18dp"
+                android:layout_alignTop="@+id/viewSeparateTaskAnswerBorder"
+                android:layout_toEndOf="@+id/viewSeparateTaskAnswerBorder"
+                android:paddingEnd="24dp"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:id="@+id/txtVDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Task Description"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:layout_marginEnd="27dp"
+                android:layout_below="@+id/txtVTaskNumberTitle"
+                android:layout_alignEnd="@+id/viewSeparateTaskAnswerBorder"
+                android:layout_alignParentStart="true"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_alignParentEnd="false"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                app:srcCompat="@color/cardview_light_background"
+                android:layout_below="@id/txtVDescription"
+                android:id="@+id/imgVDisplayPhoto"
+                android:layout_alignEnd="@+id/viewSeparateTaskAnswerBorder"
+                android:layout_alignStart="@+id/txtVDescription"
+                android:scaleX="0.8"
+                android:scaleY="0.8" />
+
+
+
+        </RelativeLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="mini"
+            app:elevation="10dp"
+            app:pressedTranslationZ="12dp"
+            android:id="@+id/fabPhoto"
+            app:backgroundTint="@color/colorFAB1"
+            android:layout_below="@id/innerContainer"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"/>
+        <TextView
+            android:id="@+id/txtVFABPhotoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Take a Photo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:layout_toStartOf="@id/fabPhoto"
+            android:layout_alignTop="@id/fabPhoto"/>
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fabPhoto"
+            app:elevation="11dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp"
+            android:id="@+id/fabSave"
+            android:layout_marginBottom="8dp"
+            app:backgroundTint="@color/colorFAB1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            />
+
+        <TextView
+            android:id="@+id/txtVFABSaveText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Save Picture"
+
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/fabPhoto"
+            android:layout_alignStart="@+id/txtVFABPhotoText"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:id="@+id/fabReturn"
+            app:backgroundTint="@color/colorFAB2"
+            android:src="@android:drawable/ic_menu_revert"
+            android:layout_below="@+id/fabPhoto"
+            android:layout_alignStart="@+id/innerContainer"
+            app:fabSize="mini"/>
+
+
+    </RelativeLayout>
+</LinearLayout>
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/screen_bg"
+        tools:context="com.app.shukdash.Views.TaskMissionPhoto"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <RelativeLayout
+            android:id="@+id/outerContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="350dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp">
+
+        <RelativeLayout
+            android:id="@+id/innerContainer"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="350dp"
+            >
+
+            <ImageView
+                android:id="@+id/ImgVTaskMissionTypeDisplay"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:contentDescription="CameraImage"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+
+            <View
+                android:id="@+id/viewRtImgBorder"
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:layout_toEndOf="@+id/ImgVTaskMissionTypeDisplay"
+                android:background="@color/black"/>
+
+
+
+            <TextView
+                android:id="@+id/txtVPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/viewRtImgBorder"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Points"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                />
+
+            <View
+                android:id="@+id/viewBelowImgBorder"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_below="@+id/ImgVTaskMissionTypeDisplay"
+                android:background="@color/black"/>
+
+            <View
+                android:id="@+id/viewSeparateTaskAnswerBorder"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:background="@color/black"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/viewBelowImgBorder"
+                android:layout_alignTop="@id/ImgVTaskMissionTypeDisplay"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="300dp"
+                android:id="@+id/cameraViewDisplay"
+                android:background="@color/white"
+                android:paddingTop="18dp"
+                android:layout_toEndOf="@+id/viewSeparateTaskAnswerBorder"
+                android:layout_alignTop="@+id/ImgVTaskMissionTypeDisplay"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
+
+
+            <TextView
+                android:id="@+id/txtVTaskNumberTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="Task "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:layout_below="@+id/viewBelowImgBorder"
+                android:layout_toStartOf="@+id/txtVTaskNumber"
+                android:layout_marginEnd="26dp"/>
+
+            <TextView
+                android:id="@+id/txtVTaskNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="##"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:layout_above="@+id/txtVDescription"
+                android:layout_alignEnd="@+id/txtVPoints"/>
+
+            <TextView
+                android:id="@+id/txtVDescription"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Task Description"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:layout_below="@+id/txtVTaskNumberTitle"
+                android:layout_toStartOf="@+id/cameraViewDisplay"/>
+        </RelativeLayout>
+
+
+
+
+
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:fabSize="mini"
+                    app:elevation="10dp"
+                    app:pressedTranslationZ="12dp"
+                    android:id="@+id/fabPhoto"
+                    app:backgroundTint="@color/colorFAB1"
+                    android:layout_below="@id/innerContainer"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/txtVFABPhotoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:visibility="invisible"
+                android:text="Take a Photo"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:layout_toLeftOf="@id/fabPhoto"
+                android:layout_alignTop="@id/fabPhoto"/>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:layout_below="@id/fabPhoto"
+                    app:elevation="10dp"
+                    app:fabSize="mini"
+                    app:pressedTranslationZ="12dp"
+                    android:id="@+id/fabSave"
+                    android:layout_marginBottom="8dp"
+                    app:backgroundTint="@color/colorFAB1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="12dp"
+                    />
+
+            <TextView
+                android:id="@+id/txtVFABSaveText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="12dp"
+                android:text="Save Picture"
+                android:visibility="invisible"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:layout_toLeftOf="@id/fabSave"
+                android:layout_alignTop="@id/fabSave"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/completed"
+                app:elevation="6dp"
+                app:pressedTranslationZ="12dp"
+                android:layout_below="@id/fabSave"
+                android:id="@+id/fabReturn"
+                app:backgroundTint="@color/colorFAB2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+    <!-
+       <FrameLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/innercontainer"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+
+                >
+            </FrameLayout>
+
+     <include
+                android:id="@+id/includeButtons"
+                layout="@layout/fab_layout"
+                />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:background="@color/white"
+            app:elevation="6dp"
+            android:layout_marginBottom="160dp"
+            android:layout_gravity="bottom|end"
+            app:pressedTranslationZ="12dp"
+            android:id="@+id/fabPhoto"/>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:background="@color/white"
+            android:layout_marginBottom="90dp"
+            android:layout_gravity="bottom|end"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:id="@+id/fabSave"/>
+
+
+    -->

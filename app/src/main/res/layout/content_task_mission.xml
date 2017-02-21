@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/taskMissionContainerLinLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/screen_bg"
+    android:orientation="vertical"
+    tools:context="com.app.shukdash.Views.TaskMissionText"
+    tools:showIn="@layout/activity_task_mission">
+
+    <RelativeLayout
+        android:id="@+id/outerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/catTabMeet"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="90dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <RelativeLayout
+            android:id="@+id/innerContainer"
+            android:background="@color/white"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:minHeight="350dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="0dp">
+
+        <ImageView
+            android:id="@+id/ImgVTaskMissionTypeDisplay"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="@color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+        <View
+            android:id="@+id/viewRtImgBorder"
+            android:layout_width="2dp"
+            android:layout_height="100dp"
+            android:layout_toEndOf="@+id/ImgVTaskMissionTypeDisplay"
+
+            android:background="@color/black"/>
+
+
+
+        <TextView
+            android:id="@+id/txtVPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/viewRtImgBorder"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Points"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+
+            android:layout_marginBottom="38dp"/>
+
+        <View
+            android:id="@+id/viewBelowImgBorder"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/ImgVTaskMissionTypeDisplay"
+
+            android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/txtVTaskNumberTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/viewBelowImgBorder"
+                android:layout_centerInParent="true"
+                android:text="Task "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/txtVTaskNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/txtVTaskNumberTitle"
+                android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@+id/txtVTaskNumberTitle"
+                android:layout_toRightOf="@+id/txtVTaskNumberTitle"
+                android:text="##"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                />
+        <TextView
+            android:id="@+id/txtVDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtVTaskNumberTitle"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Task Description"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"/>
+        </RelativeLayout>
+        <View
+            android:id="@+id/viewSeparateTaskAnswerBorder"
+            android:layout_width="1dp"
+            android:layout_height="350dp"
+            android:layout_toRightOf="@+id/innerContainer"
+            android:layout_alignTop="@+id/editText"
+            android:background="@color/black"/>
+
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:background="@color/white"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="24dp"
+            android:paddingTop="18dp"
+            android:minLines="10"
+            android:maxLines="10"
+            android:isScrollContainer="true"
+            android:layout_alignTop="@+id/innerContainer"
+            android:layout_toEndOf="@+id/viewSeparateTaskAnswerBorder"
+            android:layout_marginRight="24dp"
+            android:lines="@android:integer/config_shortAnimTime"/>
+
+    </RelativeLayout>
+</LinearLayout>

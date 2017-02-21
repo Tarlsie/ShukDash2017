@@ -1,3 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\a329c4061c56e7591324ff573986b8e14fc96181\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a7df21181823665cb79edaac01442cc75a2c909e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\09efc555e9418250af2943079132dcbd0d67e491\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9b4b4caf295393e683d28d181d9b75e6ec2c6051\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\a7f25ce827791903338511597588b256de8e303b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f3156b328e9ef963d8ad31b85c8062cb274b4095\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.0_248f895fe378231ec4848c0982cb5688eeca703a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\c2ffba87b576a94d824f64835f989e8ab0edbc90\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_58a9f936c35ea13bb396e87937faecd15b3f0401\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\baec4fdfa73c367e17bc16292d6109530a67c0b0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cfd941eb296a23136e07fd4f9513996fbbd7cba6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\3b4464bbe01cfd55769605bb001714e62560119e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_585aa55e85f6d5952186dd132230f1d429c53877\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\32ba68657a8e9846dea3566eec5732ae52f698e8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b2dc09e078d5ecf1c0022075b6939f60c8c9606c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\2958b872ce2e84c6886d3fff411c45b4cbb16ef6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="541a2ad68dc68aa49795821f8280b7624e6a0c9b">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_088ebd70e69d50d545e4ae17c54fcd8ce2f9650b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\java\AndroidStudio\ShukDash\app\libs\Parse-1.9.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\2\Parse-1.9.4_0b040d8709cc0cc1a4e37e4d8930f3757a700fb4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.0_248f895fe378231ec4848c0982cb5688eeca703a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\78430d4e85d85cf494f13d5dee14ad6033f7834d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_324e5fb26bf2df3f940e13a204505319a46fa1b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\7b316026361003e3e091cee0086babd098454bc4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3e80c20d99402a4a11c18cbe14dd10212eb38ea5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\47009b18de7322ee1d7ba8e237a544b75341c8fe\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_aa097a2ec684347d15584ae439e4d4542a3a6c20\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\java\adt23\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha7\constraint-layout-solver-1.0.0-alpha7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-alpha7_fccf6427e46fcc0fbd7287f0402346464f32e5ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\a9eb3a480bf4e9048d022b516307a79a3475219d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d1e97a7fd87eb00326c90602aa315a4c54eeb7f6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\e48569d51b18bdd9846a9ca014921c498009afdb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a5bf58e9dc5ea19c094c100f0355d18ed0698f60">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7d08da78d3c960df7158997e5fbe0baecbe1e0c1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\5601409c060cccaf4206dff35adcb83d4e593896\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e5c46ea208763712fab82aedcca1c507f3b5aa79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\24a20a5f3a0f54e421d8ef2a654c18cf7ef98a23\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d13c31fb49a57e5a2e2b745cf1c515f7eca95e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\0695ae0d4de99a591c4c133b93f67e4334abd174\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b22c02cfde701c87c7365edab72bbbd0a6d3ba82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\cad98bb540aa2f4c7d67b3f18c1562fb0f61ed6f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d2e352d68a982fc7fc03b1fd9ac46eb22cfa2fb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\b5fc4e5109025d4ec26c7ba36bf895879d5123ad\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6f68018b5ddc2493f5e5cecc5601c05d0539281a">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_27b87a865d301afd3b98e6a45fc052c45671c1c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.2.0_618bbbd33550dad59de030d7204cb9b0b4540a31\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\0a7379929001bb4c976557ef2ae3572c7ac2901f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c8f3f253362f0a05e66526a06d6478909b9f6f11\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.2.0_618bbbd33550dad59de030d7204cb9b0b4540a31\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\java\adt23\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_6087e0cf0fd6bc19c2a7e3454191a07408c24c01\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\java\AndroidStudio\ShukDash\app\libs\Parse-1.9.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\2\Parse-1.9.4_0b040d8709cc0cc1a4e37e4d8930f3757a700fb4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\java\AndroidStudio\ShukDash\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9d3ef5d987c11e2599e067b8cb97c1d0420b40c4">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_801763ece4c53bfd038f484cceb72bae0f3a2c07\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\77cbb5d6618924602a2a68142d4c3eef73b8291d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0dcff917f7bfffdab6c9c2f932de8955d963ce0e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\24e52bbd57f968e0dff48eb4f0be39f2cadb2a81\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_267552e922862bb3d073713ef6b7960d93050227\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\java\adt23\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha7\constraint-layout-solver-1.0.0-alpha7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-alpha7_fccf6427e46fcc0fbd7287f0402346464f32e5ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\java\AndroidStudio\ShukDash\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f319698c8b2f0c562fa61cc7fbd23f2b65cd7bf0">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a14eda040eca2f94f130baa554b7908f1c0ea4e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\c335c3278e76e9c74f6238e0075b98d1860892a7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d1247224c3d9f932353fe3c41c244a248cd61bd6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\2d8c3b69a0379ff84d8189d5538a4cd2cb357ef5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bb68bf86b12368b552e5513aeb4be90b367e69a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\859977bcaf6e63ef44b9fb6a2c212d72a2393738\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d813d912e1fa1726205caf04f3a686cb2f9d0e7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\daniel\.android\build-cache\24cd7fa85c329e7616fe1375ac47142629c1c3f2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\java\AndroidStudio\ShukDash\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ff4c52d3538839b57e1fc76000841dd6789821a8\classes.dex" />
+    </item>
+
+</items>

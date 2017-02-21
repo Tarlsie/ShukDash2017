@@ -326,12 +326,12 @@ public class TasksDisplay extends AppCompatActivity  {
                 convertView = inflater.inflate(R.layout.task_enter_answers, null);
              //  convertView = inflater.inflate(R.layout.task_enter_answers_text_only, null);
             }
-             //   if(isFBAnswer.equals(1)&&isPhotoAnswer.equals(1)) {
-             //       convertView = inflater.inflate(R.layout.task_enter_answers_photo_and_fb, null);
-             // Button postFB = (Button)convertView.findViewById(R.id.btnPostFB);
-             //   }
+         /*       if(isFBAnswer.equals(1)&&isPhotoAnswer.equals(1)) {
+                    convertView = inflater.inflate(R.layout.task_enter_answers_photo_and_fb, null);
+              Button postFB = (Button)convertView.findViewById(R.id.btnPostFB);
+                }
+*/
 
-            /*
            if(isPhotoAnswer.equals(1)) {
                 LayoutInflater inflater = (LayoutInflater) this.c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     convertView = inflater.inflate(R.layout.task_enter_answers_photo_only, null);
@@ -344,7 +344,7 @@ public class TasksDisplay extends AppCompatActivity  {
                saveAnswers = (Button)convertView.findViewById(R.id.btnSaveAnswers);
                    answer = (EditText)convertView.findViewById(R.id.edtTAnswer);
                 }
-*/
+
 
 
             if (answers.get(groupPosition)!=null){

@@ -2,26 +2,20 @@ package com.app.shukdash.Views.fragments;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CheckedTextView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.app.shukdash.Models.ShukDashDB;
-import com.example.shukdash.R;
 import com.app.shukdash.Views.TasksDisplay;
+import com.example.shukdash.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +59,7 @@ public class CategoryFragment extends Fragment {
             String d1 = d[0];
             String d2 = d[1];
 
-            Log.i("ShukDash", "CategoryFragment Display isAnsweredData "+ d1 +" "+d2);
+         //   Log.i("ShukDash", "CategoryFragment Display isAnsweredData "+ d1 +" "+d2);
         }
 
         int[] dataReturned = exportTasksToInts(numOfTasksData);

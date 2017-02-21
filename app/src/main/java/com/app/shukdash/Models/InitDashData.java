@@ -1,7 +1,5 @@
 package com.app.shukdash.Models;
 
-import android.util.Log;
-
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
@@ -12,6 +10,7 @@ import com.parse.ParseObject;
  */
 
 @ParseClassName("shukDashJerDetails")
+//@ParseClassName("ShukDashMachaneYehuda")
 public class InitDashData extends ParseObject{
 
     int catCode, catLength, pointS, taskNum;

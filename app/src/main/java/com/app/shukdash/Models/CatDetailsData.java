@@ -2,9 +2,6 @@ package com.app.shukdash.Models;
 
 import android.util.Log;
 
-import com.parse.ParseClassName;
-import com.parse.ParseObject;
-
 /**
  * Created by danielT on 23/08/2015.
  */
@@ -13,7 +10,7 @@ import com.parse.ParseObject;
 public class CatDetailsData {
 
 
-    String catName, description, answer;
+    String catName, description, answer, fileLocation;
     int catCode, catLength, points, taskNums, isAnswered, catTotalPoints, isTextAnswer, isPhotoAnswer, isFBAnswer;
 
     public CatDetailsData(){
@@ -21,7 +18,7 @@ public class CatDetailsData {
     }
 
     public CatDetailsData(String catName, int catCode, int catLength, int taskNums, String description,
-                          int points, int isTextAnswer, int isPhotoAnswer, int isFBAnswer ){
+                          int points, int isTextAnswer, int isPhotoAnswer, int isFBAnswer, String fileLocation ){
 
         this.catName = catName;
         this.catCode = catCode;
@@ -32,6 +29,7 @@ public class CatDetailsData {
         this.isTextAnswer = isTextAnswer;
         this.isPhotoAnswer = isPhotoAnswer;
         this.isFBAnswer = isFBAnswer;
+        this.fileLocation = fileLocation;
     }
 
     public CatDetailsData(String answer, int isAnswered){
@@ -140,6 +138,14 @@ public class CatDetailsData {
 
     public void setIsFBAnswer(int isFBAnswer){
         this.isFBAnswer = isFBAnswer;
+    }
+
+    public String getFileLocation(){
+        return this.fileLocation;
+    }
+
+    public void setFileLocation(String fileLocation){
+        this.fileLocation = fileLocation;
     }
 
 
